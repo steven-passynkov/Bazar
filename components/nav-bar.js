@@ -7,11 +7,10 @@ import Button from "react-bootstrap/Button";
 export default function Nav_bar() {
   return (
     <div>
-      <h1>Bozar</h1>
-
-      <Form.group>
+      <h3>Bozar</h3>
+      <Form>
         <Form.Control type="text" placeholder="search" />
-      </Form.group>
+      </Form>
 
       <Button variant="light">Search</Button>
 
