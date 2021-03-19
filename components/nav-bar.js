@@ -8,9 +8,9 @@ export default function Nav_bar() {
   return (
     <div>
       <h3>Bozar</h3>
-      <Form>
+      <Form.Group>
         <Form.Control type="text" placeholder="search" />
-      </Form>
+      </Form.Group>
 
       <Button variant="light">Search</Button>
 
