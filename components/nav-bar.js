@@ -3,16 +3,21 @@ import Form from "react-bootstrap/Form";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Button from "react-bootstrap/Button";
+import navbar from "../styles/navbar.module.css";
 
 export default function Nav_bar() {
   return (
-    <div>
-      <h3>Bozar</h3>
-      <Form.Group>
-        <Form.Control type="text" placeholder="search" />
+    <div className = {navbar.header}>
+      <h3 className ={navbar.h3}>Bozar</h3>
+      
+      <div className = {navbar.search}>
+      <Form.Group >
+        <Form.Control type="text" placeholder="What are you looking for?" className ={navbar.searchbar} />
       </Form.Group>
-
-      <Button variant="light">Search</Button>
+      </div>
+     
+     
+      <Button variant="light" className ={ navbar.sbtn}>Search</Button>
 
       <DropdownButton id="dropdown-basic-button" title="Dropdown button">
         <Dropdown.Item href="#/action-1">Something</Dropdown.Item>
