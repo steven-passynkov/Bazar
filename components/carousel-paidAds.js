@@ -1,4 +1,7 @@
 import Carousel from "react-multi-carousel";
+import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
 import "react-multi-carousel/lib/styles.css";
 import Item from "./carousel-item";
 
@@ -49,9 +52,20 @@ export default function Carousel_PayedPost({
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
       >
-        {items && items.map((el) => (
-          <Item id={el.id}>{el.name}</Item>
-        ))}
+        {items &&
+          items.map((el) => (
+            <Card variant="light">
+              <Card.Img variant="top" src="" />
+              <Card.Body>
+                <Card.Title>
+                  <Item id={el.id}>{el.name}</Item>
+                </Card.Title>
+                <Card.Text>
+                  Text
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          ))}
       </Carousel>
     </div>
   );
