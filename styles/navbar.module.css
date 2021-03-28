@@ -17,10 +17,11 @@
     font-size: xx-large;
     position: relative;
     left:300px;
-   
-    bottom: -12px;
+    font-family: B612;
+    bottom: -16px;
     font-size: 36px;
     line-height: 42px;  
+    font-weight: bold;
 }
 
 .search{
@@ -32,6 +33,9 @@
     position: relative;
     left:300px;
     bottom:17px;
+    font-size: x-large;
+    font-weight: bold;
+    font-family: B612;
     
     
 }
@@ -49,6 +53,12 @@
     height:50px;
     width:80px;
     left: 180px;
+    font-family: B612;
+    font-size: 18;
+    text-align: center;
+    font-weight: bold;
+    color:#8e8e8e;
+    
     
 }
 
@@ -60,6 +70,7 @@
     border-radius: 0px;
     color:#00008B;
     font-weight: bold;
+    font-family: B612;
 
 
     
@@ -67,10 +78,10 @@
 
 .sellbtn{
     position:relative;
-    bottom: 145px;
+    bottom: 146px;
     left:1100px;
-    height: 48px;
-    width: 80px;
+    height: 50px;
+    width:85px;
     color:#00008B;
     font-size:x-large;
     font-family:B612;

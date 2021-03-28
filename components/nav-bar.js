@@ -28,7 +28,7 @@ export default function Nav_bar() {
 
       </DropdownButton>
 
-      <Button variant="light" className={navbar.sellbtn}>Sell</Button>
+      <Button variant="light" className={navbar.sellbtn}>Sell<img src="Gregory\Bazar\public"/></Button>
     </div>
         
   );
