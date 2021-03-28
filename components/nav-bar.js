@@ -19,13 +19,17 @@ export default function Nav_bar() {
      
       <Button variant="light" className ={ navbar.sbtn}>Search</Button>
 
-      <DropdownButton id="dropdown-basic-button" title="Dropdown button">
+    
+        <DropdownButton  title="Categories" variant="light" className={navbar.dropdown} size="lg" id="dropdn" >
+        
         <Dropdown.Item href="#/action-1">Something</Dropdown.Item>
         <Dropdown.Item href="#/action-2">Something</Dropdown.Item>
         <Dropdown.Item href="#/action-3">Something </Dropdown.Item>
+
       </DropdownButton>
 
-      <Button variant="light">Sell</Button>
+      <Button variant="light" className={navbar.sellbtn}>Sell</Button>
     </div>
+        
   );
 }
