@@ -1,7 +1,7 @@
 import { ListGroupItem } from 'react-bootstrap'
 import ListGroup from 'react-bootstrap/ListGroup'
 
-export default function Carousel_PayedPost(){
+export default function Footer(){
 return(
 <div>
 <ListGroup>
