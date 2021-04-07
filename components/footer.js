@@ -1,5 +1,6 @@
 import { ListGroupItem } from 'react-bootstrap'
 import ListGroup from 'react-bootstrap/ListGroup'
+import Container from "react-bootstrap/Container";
 
 export default function Footer(){
 return(
@@ -31,6 +32,5 @@ return(
     <ListGroupItem action href="#Buy"> Buy  </ListGroupItem>
     <ListGroupItem action href="#Sell"> Sell  </ListGroupItem>
 </ListGroup>
-
 </div>
 )}
