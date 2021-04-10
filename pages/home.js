@@ -11,43 +11,40 @@ export default function Home_Page() {
     return <p>Loading...</p>;
   }
   return (
-    
     <>
-    {session ? (
-      <div>
-      <Nav_bar />
-      <div>
-        <h3>
-          <strong>Trending</strong>
-        </h3>
-        <Carousel_PayedPost
-          numberItemsDesktop={3}
-          numberItemsTable={2}
-          numberItemsMobile={1}
-          items={Carousel_Items.trending_items}
-        />
-      </div>
-      <div>
-        <h3>
-          <strong>Auto</strong>
-        </h3>
-        <Carousel_PayedPost
-          numberItemsDesktop={4}
-          numberItemsTable={2}
-          numberItemsMobile={1}
-          items={Carousel_Items.auto_items}
-        />
-      </div>
-      <Footer />
-    </div>
-    ) : (
-      <p>
-        <p>You are not permitted to see this page.</p>
-        <button onClick={signIn}>Sign in</button>
-      </p>
-    )}
-  </>
-    
-    
+      {session ? (
+        <div>
+          <Nav_bar />
+          <div>
+            <h3>
+              <strong>Trending</strong>
+            </h3>
+            <Carousel_PayedPost
+              numberItemsDesktop={3}
+              numberItemsTable={2}
+              numberItemsMobile={1}
+              items={Carousel_Items.trending_items}
+            />
+          </div>
+          <div>
+            <h3>
+              <strong>Auto</strong>
+            </h3>
+            <Carousel_PayedPost
+              numberItemsDesktop={4}
+              numberItemsTable={2}
+              numberItemsMobile={1}
+              items={Carousel_Items.auto_items}
+            />
+          </div>
+          <Footer />
+        </div>
+      ) : (
+        <p>
+          <p>You are not permitted to see this page.</p>
+          <button onClick={signIn}>Sign in</button>
+        </p>
+      )}
+    </>
   );
 }

@@ -6,10 +6,10 @@ import Carousel_Items from "../../carousel-items.json";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css';
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 import { useState } from "react";
-import { signIn, useSession } from 'next-auth/client';
+import { signIn, useSession } from "next-auth/client";
 
 export default function Product_page() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,68 +28,73 @@ export default function Product_page() {
   ];
 
   return (
-<>
-    {session ? (
-      <div>
-      <Nav_bar />
-      <Container fluid>
-        <div className={Product_CSS.Breadcrumb}>
-          <Breadcrumb>
-            <Breadcrumb.Item href="../../">Home</Breadcrumb.Item>
-            <Breadcrumb.Item href="#">Region: {}</Breadcrumb.Item>
-            <Breadcrumb.Item href="#">Category: {}</Breadcrumb.Item>
-            <Breadcrumb.Item active>Id: {}</Breadcrumb.Item>
-          </Breadcrumb>
+    <>
+      {session ? (
+        <div>
+          <Nav_bar />
+          <Container fluid>
+            <div className={Product_CSS.Breadcrumb}>
+              <Breadcrumb>
+                <Breadcrumb.Item href="../../">Home</Breadcrumb.Item>
+                <Breadcrumb.Item href="#">Region: {}</Breadcrumb.Item>
+                <Breadcrumb.Item href="#">Category: {}</Breadcrumb.Item>
+                <Breadcrumb.Item active>Id: {}</Breadcrumb.Item>
+              </Breadcrumb>
+            </div>
+          </Container>
+
+          <div>
+            <Carousel
+              numberItemsDesktop={1}
+              numberItemsTable={1}
+              numberItemsMobile={1}
+              items={Carousel_Items.auto_items}
+            />
+          </div>
+
+          <div>
+            <button type="button" onClick={() => setIsOpen(true)}>
+              Open Lightbox
+            </button>
+
+            {isOpen && (
+              <Lightbox
+                mainSrc={images[photoIndex]}
+                nextSrc={images[(photoIndex + 1) % images.length]}
+                prevSrc={
+                  images[(photoIndex + images.length - 1) % images.length]
+                }
+                onCloseRequest={() => () => setIsOpen(false)}
+                onMovePrevRequest={() =>
+                  this.setState({
+                    photoIndex:
+                      (photoIndex + images.length - 1) % images.length,
+                  })
+                }
+                onMoveNextRequest={() =>
+                  setPhotoIndex(
+                    (photoIndex) => (photoIndex + 1) % images.length
+                  )
+                }
+              />
+            )}
+          </div>
+
+          <div>
+            <h3>Price: {}</h3>
+            <h5>Sellers Name: {}</h5>
+            <Button>Make offer</Button>
+            <Button>Contact seller</Button>
+          </div>
+
+          <Footer />
         </div>
-      </Container>
-
-      <div>
-        <Carousel
-          numberItemsDesktop={1}
-          numberItemsTable={1}
-          numberItemsMobile={1}
-          items={Carousel_Items.auto_items}
-        />
-      </div>
-
-      <div>
-        <button type="button" onClick={() => setIsOpen(true)}>
-          Open Lightbox
-        </button>
-
-        {isOpen && (
-          <Lightbox
-            mainSrc={images[photoIndex]}
-            nextSrc={images[(photoIndex + 1) % images.length]}
-            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-            onCloseRequest={() => () => setIsOpen(false)}
-            onMovePrevRequest={() =>
-              this.setState({
-                photoIndex: (photoIndex + images.length - 1) % images.length
-              })
-            }
-            onMoveNextRequest={() =>
-              setPhotoIndex(photoIndex=> (photoIndex + 1) % images.length)
-            }
-          />
-        )}
-      </div>
-
-      <div>
-        <h3>Price: {}</h3>
-        <h5>Sellers Name: {}</h5>
-        <Button>Make offer</Button>
-        <Button>Contact seller</Button>
-      </div>
-
-      <Footer />
-    </div>
-    ) : (
-      <p>
-        <p>You are not permitted to see this page.</p>
-        <button onClick={signIn}>Sign in</button>
-      </p>
-    )}
+      ) : (
+        <p>
+          <p>You are not permitted to see this page.</p>
+          <button onClick={signIn}>Sign in</button>
+        </p>
+      )}
     </>
   );
 }
