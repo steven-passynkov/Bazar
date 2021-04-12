@@ -1,0 +1,16 @@
+.navbar {
+    background-color: #00008b;
+    margin-top:0.5%;
+}
+
+.navbar  .navbar-brand {
+    color: white;
+}
+
+.navbar .dropdown  {
+    background-color: white;
+    color:black;
+}
+.navbar  .navbar-brand:hover {
+    color: white;
+}
