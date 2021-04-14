@@ -52,11 +52,11 @@ export default function Carousel_PayedPost({
       >
         {items.map((el) => (
           <div>
-          <Card variant="light">
+          <Card variant="light" id={el.id}>
             <Card.Img variant="top" src="" />
             <Card.Body>
               <Card.Title>
-                <Item id={el.id}>{el.name}</Item>
+                <Item>{el.name}</Item>
               </Card.Title>
               <Card.Text>Text</Card.Text>
             </Card.Body>
