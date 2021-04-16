@@ -3,6 +3,11 @@
     margin-top:0.5%;
 }
 
+
+.navbar .mr-sm-2 {
+    margin-left: 3.5rem;
+}
+
 .navbar  .navbar-brand {
     color: white;
 }

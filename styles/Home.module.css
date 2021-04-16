@@ -114,6 +114,11 @@
   height: 1em;
 }
 
+.box{
+  margin-left: 8rem;
+  margin-right: 8rem;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
