@@ -56,9 +56,7 @@ export default function Product_page() {
             prevSrc={images[(photoIndex + images.length - 1) % images.length]}
             onCloseRequest={() => () => setIsOpen(false)}
             onMovePrevRequest={() =>
-              this.setState({
-                photoIndex: (photoIndex + images.length - 1) % images.length,
-              })
+              setPhotoIndex((photoIndex) => (photoIndex - 1) % images.length)
             }
             onMoveNextRequest={() =>
               setPhotoIndex((photoIndex) => (photoIndex + 1) % images.length)
