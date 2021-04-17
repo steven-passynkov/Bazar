@@ -7,10 +7,19 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import FormControl from "react-bootstrap/FormControl";
 import Card from "react-bootstrap/Card";
-import { useState } from "react";
+import { useRef } from "react";
+import { useRouter } from "next/router";
 
 export default function Nav_bar() {
-  const [title, setTitle] = useState("");
+  const titleRef = useRef(0)
+  const router = useRouter();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    router.push(`/product/${titleRef.current}`);
+  };
+
   return (
     <div>
       <Card style={{ background: "#00008b" }} />
@@ -20,16 +29,17 @@ export default function Nav_bar() {
             Bozar
           </Navbar.Brand>
 
-          <Form inline className="mr-sm-2">
+          <Form inline className="mr-sm-2" onSubmit={handleSubmit}>
             <FormControl
               htmlSize={100}
               type="text"
               placeholder="What are you looking for?"
               className="mr-sm-2"
-              onChange={(event) => setTitle(event.target.value)}
-              onSubmit={(event)  => <Link href={../pages/product/title} />}
+              onChange={(event) => titleRef.current = event.target.value}
             />
-            <Button variant="light">Search</Button>
+            <Button variant="light" type="submit">
+              Search
+            </Button>
           </Form>
 
           <NavDropdown title="Categories" id="basic-nav-dropdown">
