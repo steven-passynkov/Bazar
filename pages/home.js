@@ -12,14 +12,14 @@ export default function Home_Page() {
     <div>
       <Nav_bar />
       <div className={Home_css.box}>
-<div style={{margin:"3rem"}}>
-        <Jumbotron>
-          <h1>Sell Now!</h1>
-          <p>
-            <Button variant="primary">Sell</Button>
-          </p>
-        </Jumbotron>
-</div>
+        <div style={{ margin: "3rem" }}>
+          <Jumbotron>
+            <h1>Sell Now!</h1>
+            <p>
+              <Button variant="primary">Sell</Button>
+            </p>
+          </Jumbotron>
+        </div>
         <Card className="text-center" style={{ margin: "4rem" }}>
           <Card.Header style={{ color: "#00008b" }}>
             <strong>Trending</strong>
