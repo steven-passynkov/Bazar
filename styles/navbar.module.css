@@ -50,9 +50,9 @@
     margin: 30px 20px;  
     position: relative;
     bottom:17px;
-    height:50px;
+    height:52px;
     width:80px;
-    left: 180px;
+    left: 250px;
     font-family: B612;
     font-size: 18;
     text-align: center;
@@ -67,8 +67,6 @@
     left:285px;
     bottom:96px;
     height: 50px ;
-    border-radius: 0px;
-    color:#00008B;
     font-weight: bold;
     font-family: B612;
 

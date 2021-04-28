@@ -1,21 +1,47 @@
 .navbar {
     background-color: #00008b;
     margin-top:0.5%;
+    height: 70px;
 }
 
 
 .navbar .mr-sm-2 {
-    margin-left: 3.5rem;
+    margin-left: 10rem;
+    height:44px;
 }
 
-.navbar  .navbar-brand {
-    color: white;
-}
+
 
 .navbar .dropdown  {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     color:black;
+    border-radius: 5px;
+    margin-left:4.5rem
 }
-.navbar  .navbar-brand:hover {
-    color: white;
+
+
+.navbar .navbar-brand {
+    position:absolute;
+    left:11%;
+    top: -0.6rem;
+    font-size: 45px;
+    color:white;
+}
+
+.navbar .searchb{
+    position: absolute;
+    left:56.2%;
+    margin-left:5rem;
+    height:44px;
+}
+.navbar .sellbtn{
+    position: absolute;
+    right: 10%;
+    margin-left:5rem;
+    height: 50px;
+    width: 80px;
+    font-size: 25px;
+    font-weight:500;
+    text-align: center;
+    padding: 0;
 }
