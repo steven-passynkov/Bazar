@@ -37,19 +37,19 @@ export default function Nav_bar() {
               className="mr-sm-2"
               onChange={(event) => titleRef.current = event.target.value}
             />
-            <Button variant="light" type="submit">
+            <Button variant="light" type="submit" className="searchb">
               Search
             </Button>
           </Form>
 
-          <NavDropdown title="Categories" id="basic-nav-dropdown">
+          <NavDropdown title="Categories" id="basic-nav-dropdown" className="dropdown">
             <NavDropdown.Item href="#action/3.1">Something</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">Something</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
           </NavDropdown>
         </Nav>
 
-        <Button variant="light">
+        <Button variant="light" className="sellbtn">
           Sell
           <img src="" />
         </Button>
