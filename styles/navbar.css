@@ -10,8 +10,6 @@
     height:44px;
 }
 
-
-
 .navbar .dropdown  {
     background-color: rgb(255, 255, 255);
     color:black;
@@ -26,6 +24,10 @@
     top: -0.6rem;
     font-size: 45px;
     color:white;
+}
+
+.navbar  .navbar-brand:hover {
+    color: white;
 }
 
 .navbar .searchb{
