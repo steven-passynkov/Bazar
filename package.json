@@ -17,5 +17,8 @@
     "react-image-lightbox": "^5.1.1",
     "react-multi-carousel": "2.6.2",
     "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.12.0"
   }
 }

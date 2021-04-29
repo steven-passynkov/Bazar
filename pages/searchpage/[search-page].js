@@ -76,6 +76,7 @@ export default function search_page() {
           </Card>
         </div>
       </Container>
+      <Footer/>
     </div>
   );
 }
