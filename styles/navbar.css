@@ -14,7 +14,7 @@
     background-color: rgb(255, 255, 255);
     color:black;
     border-radius: 5px;
-    margin-left:4.5rem
+    margin-left:2rem
 }
 
 
@@ -30,20 +30,15 @@
     color: white;
 }
 
+.navbar .searchbar{
+    width: 60rem;
+    margin-left: 20rem;
+}
+
 .navbar .searchb{
-    position: absolute;
-    left:56.2%;
-    margin-left:5rem;
-    height:44px;
+    margin-left:2rem;
+    border-radius: 5px;
 }
 .navbar .sellbtn{
-    position: absolute;
-    right: 10%;
-    margin-left:5rem;
-    height: 50px;
-    width: 80px;
-    font-size: 25px;
-    font-weight:500;
-    text-align: center;
-    padding: 0;
+    margin-left: 2rem;
 }
