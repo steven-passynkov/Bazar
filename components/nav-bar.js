@@ -9,9 +9,10 @@ import FormControl from "react-bootstrap/FormControl";
 import Card from "react-bootstrap/Card";
 import { useRef } from "react";
 import { useRouter } from "next/router";
+import InputGroup from "react-bootstrap/InputGroup";
 
 export default function Nav_bar() {
-  const titleRef = useRef(0)
+  const titleRef = useRef(0);
   const router = useRouter();
 
   const handleSubmit = (event) => {
@@ -30,22 +31,28 @@ export default function Nav_bar() {
           </Navbar.Brand>
 
           <Form inline className="mr-sm-2" onSubmit={handleSubmit}>
-            <FormControl
-              htmlSize={100}
-              type="text"
-              placeholder="What are you looking for?"
-              className="mr-sm-2"
-              onChange={(event) => titleRef.current = event.target.value}
-            />
-            <Button variant="light" type="submit" className="searchb">
-              Search
-            </Button>
+            <InputGroup className="mb-3" size="lg">
+              <FormControl
+                htmlSize={100}
+                placeholder="What are you looking for?"
+                onChange={(event) => (titleRef.current = event.target.value)}
+              />
+              <InputGroup.Append>
+                <Button variant="light" type="submit">
+                  Search
+                </Button>
+              </InputGroup.Append>
+            </InputGroup>
           </Form>
 
-          <NavDropdown title="Categories" id="basic-nav-dropdown" className="dropdown">
-            <NavDropdown.Item href="#action/3.1">Something</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">Something</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+          <NavDropdown title="Categories" id="nav-dropdown">
+            <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
+            <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
+            <NavDropdown.Item eventKey="4.3">
+              Something else here
+            </NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
           </NavDropdown>
         </Nav>
 

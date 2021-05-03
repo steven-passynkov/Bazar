@@ -11,12 +11,21 @@
 }
 
 .navbar .dropdown  {
-    background-color: rgb(255, 255, 255);
-    color:black;
+    background-color: #f8f9fa;
     border-radius: 5px;
     margin-left:4.5rem
 }
 
+.navbar .dropdown a.nav-link {
+    color: #212529;
+    font-size: 1.25rem
+}
+
+.navbar .dropdown:hover {
+    color: #212529;
+    background-color: #e2e6ea;
+    border-color: #dae0e5;
+}
 
 .navbar .navbar-brand {
     position:absolute;
