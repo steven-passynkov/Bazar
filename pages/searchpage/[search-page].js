@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Nav_bar from "../../components/nav-bar";
 import Footer from "../../components/footer";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
@@ -9,10 +10,16 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Dropdown from "react-bootstrap/Dropdown";
+import {Pagination} from "../../components/pagination/pagination"
 
 export default function search_page() {
   const router = useRouter();
   const { search } = router.query;
+  const [recordsPerPage, setRecordsPerPage] = useState(5);
+  const [students, setStudents] = useState([]);
+  const [isLoadingStudents, setLoadingStudents] = useState(false);
+  const [reload, setReload] = useState(false);
+  const [isSearchingStudents, setSearchingStudents] = useState(false);
 
   return (
     <div>
@@ -50,7 +57,19 @@ export default function search_page() {
       </div>
       <Container fluid>
         <Col>
-          {Search_results.map((el) => (
+        {!students.length && !isLoadingStudents && (
+                    <div className="text-center">
+                      No students
+                    </div>
+                  )}
+
+           {isLoadingStudents && (
+                    <div className="text-center">
+                        <span>Loading...</span>
+                    </div>
+                  )}
+
+          {!isLoadingStudents && students.map((el) => (
             <div>
               <Card
                 className={Search_results_css.results}
@@ -75,6 +94,15 @@ export default function search_page() {
             <Card.Title>Fliter:</Card.Title>
           </Card>
         </div>
+        <Pagination
+                apiRoute={`/api/search`}
+                recordsPerPage={recordsPerPage}
+                responseData={setStudents}
+                isLoadingData={setLoadingStudents}
+                reloadApi={reload}
+                search={search}
+                isSearchingData={setSearchingStudents}
+              />
       </Container>
       <Footer/>
     </div>
