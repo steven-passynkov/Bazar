@@ -18,7 +18,7 @@ export default function Nav_bar() {
   const handleSubmit = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    router.push(`/searchpage/${titleRef.current}`);
+    router.push(`/search/${titleRef.current}`);
   };
 
   return (

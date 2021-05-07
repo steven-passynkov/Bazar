@@ -10,7 +10,7 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Dropdown from "react-bootstrap/Dropdown";
-import {Pagination} from "../../components/pagination/pagination"
+import { Pagination } from "../../components/pagination/pagination";
 
 export default function search_page() {
   const router = useRouter();
@@ -57,37 +57,36 @@ export default function search_page() {
       </div>
       <Container fluid>
         <Col>
-        {!students.length && !isLoadingStudents && (
-                    <div className="text-center">
-                      No students
-                    </div>
-                  )}
+          {!students.length && !isLoadingStudents && (
+            <div className="text-center">No students</div>
+          )}
 
-           {isLoadingStudents && (
-                    <div className="text-center">
-                        <span>Loading...</span>
-                    </div>
-                  )}
-
-          {!isLoadingStudents && students.map((el) => (
-            <div>
-              <Card
-                className={Search_results_css.results}
-                variant="light"
-                key={el.id}
-              >
-                <Card.Link href={`../product/${el.name}`}>
-                <Card.Img variant="top" src="" />
-                <Card.Body>
-                  <Card.Title>
-                    <div>{el.name}</div>
-                  </Card.Title>
-                  <Card.Text>Text</Card.Text>
-                </Card.Body>
-                </Card.Link>
-              </Card>
+          {isLoadingStudents && (
+            <div className="text-center">
+              <span>Loading...</span>
             </div>
-          ))}
+          )}
+
+          {!isLoadingStudents &&
+            students.map((el) => (
+              <div>
+                <Card
+                  className={Search_results_css.results}
+                  variant="light"
+                  key={el.id}
+                >
+                  <Card.Link href={`../product/${el.name}`}>
+                    <Card.Img variant="top" src="" />
+                    <Card.Body>
+                      <Card.Title>
+                        <div>{el.name}</div>
+                      </Card.Title>
+                      <Card.Text>Text</Card.Text>
+                    </Card.Body>
+                  </Card.Link>
+                </Card>
+              </div>
+            ))}
         </Col>
         <div className={Search_results_css.fliter}>
           <Card>
@@ -95,16 +94,16 @@ export default function search_page() {
           </Card>
         </div>
         <Pagination
-                apiRoute={`/api/search`}
-                recordsPerPage={recordsPerPage}
-                responseData={setStudents}
-                isLoadingData={setLoadingStudents}
-                reloadApi={reload}
-                search={search}
-                isSearchingData={setSearchingStudents}
-              />
+          apiRoute={`/api/search`}
+          recordsPerPage={recordsPerPage}
+          responseData={setStudents}
+          isLoadingData={setLoadingStudents}
+          reloadApi={reload}
+          search={search}
+          isSearchingData={setSearchingStudents}
+        />
       </Container>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
