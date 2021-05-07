@@ -3,7 +3,6 @@ import Nav_bar from "../../components/nav-bar";
 import Footer from "../../components/footer";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Card from "react-bootstrap/Card";
-import Search_results from "../../search-results.json";
 import Search_results_css from "../../styles/Search_results.module.css";
 import { useRouter } from "next/router";
 import Container from "react-bootstrap/Container";
@@ -16,10 +15,10 @@ export default function search_page() {
   const router = useRouter();
   const { search } = router.query;
   const [recordsPerPage, setRecordsPerPage] = useState(5);
-  const [students, setStudents] = useState([]);
-  const [isLoadingStudents, setLoadingStudents] = useState(false);
+  const [data, setData] = useState([]);
+  const [isLoadingData, setLoadingData] = useState(false);
   const [reload, setReload] = useState(false);
-  const [isSearchingStudents, setSearchingStudents] = useState(false);
+  const [isSearchingData, setSearchingData] = useState(false);
 
   return (
     <div>
@@ -57,18 +56,18 @@ export default function search_page() {
       </div>
       <Container fluid>
         <Col>
-          {!students.length && !isLoadingStudents && (
-            <div className="text-center">No students</div>
+          {!data.length && !isLoadingData && (
+            <div className="text-center">No results found</div>
           )}
 
-          {isLoadingStudents && (
+          {isLoadingData && (
             <div className="text-center">
               <span>Loading...</span>
             </div>
           )}
 
-          {!isLoadingStudents &&
-            students.map((el) => (
+          {!isLoadingData &&
+            data.map((el) => (
               <div>
                 <Card
                   className={Search_results_css.results}
@@ -96,11 +95,11 @@ export default function search_page() {
         <Pagination
           apiRoute={`/api/search`}
           recordsPerPage={recordsPerPage}
-          responseData={setStudents}
-          isLoadingData={setLoadingStudents}
+          responseData={setData}
+          isLoadingData={setLoadingData}
           reloadApi={reload}
           search={search}
-          isSearchingData={setSearchingStudents}
+          isSearchingData={setSearchingData}
         />
       </Container>
       <Footer />

@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-const students = [
+const data = [
   { name: "Alice Doe", email: "alice@xyz.com", department: "Computer Science" },
   {
     name: "John Doe",
@@ -48,7 +48,7 @@ const students = [
 
 export default (req, res) => {
 
-  let studentInternal = students;
+  let studentInternal = data;
 
   // Calculate start, Aka skip if you use it in db queries
   const start =
@@ -60,7 +60,7 @@ export default (req, res) => {
   // Match if searchTerm is received from client
   // Use your DB query here
   if (req.query.searchTerm) {
-    studentInternal = students.filter((student) => {
+    studentInternal = data.filter((student) => {
       return (
         student.name.match(new RegExp(req.query.searchTerm, "i")) ||
         student.email.match(new RegExp(req.query.searchTerm, "i")) ||
