@@ -1,54 +1,7 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
-const data = [
-  { name: "Alice Doe", email: "alice@xyz.com", department: "Computer Science" },
-  {
-    name: "John Doe",
-    email: "john@xyz.com",
-    department: "Information Technology",
-  },
-  { name: "Alice Doe", email: "alice@xyz.com", department: "Computer Science" },
-  {
-    name: "John Doe",
-    email: "john@xyz.com",
-    department: "Information Technology",
-  },
-  { name: "Alice Doe", email: "alice@xyz.com", department: "Computer Science" },
-  {
-    name: "John Doe",
-    email: "john@xyz.com",
-    department: "Information Technology",
-  },
-  { name: "Alice Doe", email: "alice@xyz.com", department: "Computer Science" },
-  {
-    name: "John Doe",
-    email: "john@xyz.com",
-    department: "Information Technology",
-  },
-  { name: "Alice Doe", email: "alice@xyz.com", department: "Computer Science" },
-  {
-    name: "John Doe",
-    email: "john@xyz.com",
-    department: "Information Technology",
-  },
-  { name: "Alice Doe", email: "alice@xyz.com", department: "Computer Science" },
-  {
-    name: "John Doe",
-    email: "john@xyz.com",
-    department: "Information Technology",
-  },
-  { name: "Alice Doe", email: "alice@xyz.com", department: "Computer Science" },
-  {
-    name: "John Doe",
-    email: "john@xyz.com",
-    department: "Information Technology",
-  },
-  { name: "Alice Doe", email: "alice@xyz.com", department: "Computer Science" },
-];
+import data from "../../api.json"
 
 export default (req, res) => {
-
-  let studentInternal = data;
+  let dataInternal = data;
 
   // Calculate start, Aka skip if you use it in db queries
   const start =
@@ -60,11 +13,9 @@ export default (req, res) => {
   // Match if searchTerm is received from client
   // Use your DB query here
   if (req.query.searchTerm) {
-    studentInternal = data.filter((student) => {
+    dataInternal = data.filter((data) => {
       return (
-        student.name.match(new RegExp(req.query.searchTerm, "i")) ||
-        student.email.match(new RegExp(req.query.searchTerm, "i")) ||
-        student.department.match(new RegExp(req.query.searchTerm, "i"))
+        data.name.match(new RegExp(req.query.searchTerm, "i"))
       );
     });
   }
@@ -73,8 +24,8 @@ export default (req, res) => {
   setTimeout(() => {
     // Send response: { count, data }
     res.status(200).json({
-      count: studentInternal.length,
-      data: studentInternal.slice(start, end),
+      count: dataInternal.length,
+      data: dataInternal.slice(start, end),
     });
   }, 1000);
-}
+};

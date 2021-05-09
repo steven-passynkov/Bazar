@@ -74,7 +74,7 @@ export default function search_page() {
                   variant="light"
                   key={el.id}
                 >
-                  <Card.Link href={`../product/${el.name}`}>
+                  <Card.Link href={`../product/${el.id}`}>
                     <Card.Img variant="top" src="" />
                     <Card.Body>
                       <Card.Title>
