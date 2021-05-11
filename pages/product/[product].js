@@ -8,18 +8,33 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
-import { useState } from "react";
+import { useState, setShow } from "react";
 import { useRouter } from "next/router";
 import axiosInstance from "../../http/httpInstance";
+import Card from "react-bootstrap/Card";
+import Link from "next/link";
+import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
 
 export default function Product_page() {
   const router = useRouter();
   const { product } = router.query;
+
   const [isOpen, setIsOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
+
   const [loading, setLoadingData] = useState(true);
   const [name, setName] = useState([]);
   const [id, setId] = useState();
+  const [price, setPrice] = useState();
+  const [title, setTitle] = useState();
+  const [info, setInfo] = useState();
+  const [description, setDescription] = useState();
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const images = [
     "//placekitten.com/1500/500",
@@ -36,6 +51,10 @@ export default function Product_page() {
       setLoadingData(false);
       setName(response.data.data.name);
       setId(response.data.data.id);
+      setPrice(response.data.data.price);
+      setTitle(response.data.data.title);
+      setInfo(response.data.data.info);
+      setDescription(response.data.data.description);
     })
     .catch((error) => {
       console.error(error);
@@ -58,20 +77,20 @@ export default function Product_page() {
             </div>
           </Container>
 
-          <div>
-            <Carousel
-              numberItemsDesktop={1}
-              numberItemsTable={1}
-              numberItemsMobile={1}
-              items={Carousel_Items.auto_items}
-            />
-          </div>
+          <Card className="text-center" style={{ width: "61rem" }}>
+            <Card.Body>
+              <Carousel
+                className="Product_car"
+                numberItemsDesktop={1}
+                numberItemsTable={1}
+                numberItemsMobile={1}
+                items={Carousel_Items.auto_items}
+              />
+              <button type="button">Open Lightbox</button>
+            </Card.Body>
+          </Card>
 
           <div>
-            <button type="button" onClick={() => setIsOpen(true)}>
-              Open Lightbox
-            </button>
-
             {isOpen && (
               <Lightbox
                 mainSrc={images[photoIndex]}
@@ -93,14 +112,58 @@ export default function Product_page() {
               />
             )}
           </div>
-
           <div>
-            <h3>Price: {}</h3>
-            <h5>Sellers Name: {name}</h5>
-            <Button>Make offer</Button>
-            <Button>Contact seller</Button>
+            <Modal
+              show={show}
+              onHide={handleClose}
+              backdrop="static"
+              keyboard={false}
+              centered
+            >
+              <Modal.Header closeButton>
+                <Modal.Title>Make offer</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <Form>
+                  <InputGroup>
+                    <InputGroup.Text>$</InputGroup.Text>
+                    <Form.Control />
+                  </InputGroup>
+                </Form>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                <Button variant="primary">Confirm</Button>
+              </Modal.Footer>
+            </Modal>
           </div>
 
+          <div className="div_price">
+            <h3 className="Price">Price: ${price}</h3>
+          </div>
+
+          <h5 className="product_title"> {title}</h5>
+
+          <Card className="sellerinfo" style={{ width: "18rem" }}>
+            Seller Name:{" "}
+            <Link href="#">
+              <a>{name}</a>
+            </Link>
+          </Card>
+
+          <Button className="offerbtn" onClick={handleShow}>
+            Make offer
+          </Button>
+          <Button className="messagebtn">Contact seller</Button>
+          <Card className="description" style={{ width: "61rem" }}>
+            <Card.Body>{description}</Card.Body>
+          </Card>
+
+          <Card className="item_info" style={{ width: "18rem" }}>
+            <Card.Body>{info}</Card.Body>
+          </Card>
           <Footer />
         </div>
       ) : (
