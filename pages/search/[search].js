@@ -1,18 +1,24 @@
+import React, { useState } from "react";
 import Nav_bar from "../../components/nav-bar";
 import Footer from "../../components/footer";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Card from "react-bootstrap/Card";
-import Search_results from "../../search-results.json";
 import Search_results_css from "../../styles/Search_results.module.css";
 import { useRouter } from "next/router";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Dropdown from "react-bootstrap/Dropdown";
+import { Pagination } from "../../components/pagination/pagination";
 
 export default function search_page() {
   const router = useRouter();
   const { search } = router.query;
+  const [recordsPerPage, setRecordsPerPage] = useState(5);
+  const [data, setData] = useState([]);
+  const [isLoadingData, setLoadingData] = useState(false);
+  const [reload, setReload] = useState(false);
+  const [isSearchingData, setSearchingData] = useState(false);
 
   return (
     <div>
@@ -50,33 +56,53 @@ export default function search_page() {
       </div>
       <Container fluid>
         <Col>
-          {Search_results.map((el) => (
-            <div>
-              <Card
-                className={Search_results_css.results}
-                variant="light"
-                key={el.id}
-              >
-                <Card.Link href={`../product/${el.name}`}>
-                <Card.Img variant="top" src="" />
-                <Card.Body>
-                  <Card.Title>
-                    <div>{el.name}</div>
-                  </Card.Title>
-                  <Card.Text>Text</Card.Text>
-                </Card.Body>
-                </Card.Link>
-              </Card>
+          {!data.length && !isLoadingData && (
+            <div className="text-center">No results found</div>
+          )}
+
+          {isLoadingData && (
+            <div className="text-center">
+              <span>Loading...</span>
             </div>
-          ))}
+          )}
+
+          {!isLoadingData &&
+            data.map((el) => (
+              <div>
+                <Card
+                  className={Search_results_css.results}
+                  variant="light"
+                  key={el.id}
+                >
+                  <Card.Link href={`../product/${el.id}`}>
+                    <Card.Img variant="top" src="" />
+                    <Card.Body>
+                      <Card.Title>
+                        <div>{el.name}</div>
+                      </Card.Title>
+                      <Card.Text>Text</Card.Text>
+                    </Card.Body>
+                  </Card.Link>
+                </Card>
+              </div>
+            ))}
         </Col>
         <div className={Search_results_css.fliter}>
           <Card>
             <Card.Title>Fliter:</Card.Title>
           </Card>
         </div>
+        <Pagination
+          apiRoute={`/api/search`}
+          recordsPerPage={recordsPerPage}
+          responseData={setData}
+          isLoadingData={setLoadingData}
+          reloadApi={reload}
+          search={search}
+          isSearchingData={setSearchingData}
+        />
       </Container>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,66 @@
+.Price{
+    font-size:3rem;
+    margin-left: 79rem;
+    color:#00008B;
+    position:absolute; 
+    top: 10rem;
+    
+}
+.text-center{
+    margin-left: 12rem;
+    margin-top: 5rem;
+}
+
+.product_car{
+    height:14rem;
+}
+
+.offerbtn{
+    width: 14rem;
+    height: 5rem;
+    font-size: 2rem;
+    position:absolute;
+    right: 27.5rem;
+    top: 14rem;
+}
+
+.messagebtn{
+    width: 14rem;
+    height: 5rem;
+    font-size: 2rem;
+    position:absolute;
+    right: 27.5rem;
+    top: 20rem;
+}
+
+.sellerinfo{
+    height:13rem;
+    position: absolute;
+    top: 25.5rem;
+    right: 23.5rem;
+    margin-top: 1rem;
+    
+
+}
+
+.description{
+    height: 20rem;
+    margin-left:12rem;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+}
+
+.product_title{
+    margin-left:12rem;
+    font-size: 3rem;
+    position: absolute;
+    top: 10rem;
+    color:#00008B;
+}
+
+.item_info{
+    position: absolute;
+    right:23.5rem;
+    top:41.5rem;
+    height: 20rem;  
+}
