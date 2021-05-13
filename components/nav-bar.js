@@ -26,8 +26,7 @@ export default function Nav_bar() {
       <Card style={{ background: "#00008b" }} />
       <div>
       <Navbar expand="lg" className="justify-content-between">
-        <Nav className="mr-auto">
-          <Navbar.Brand href="/.." variant="light">
+          <Navbar.Brand href="/.." varia  nt="light">
             Bozar
           </Navbar.Brand>
           <div>
@@ -65,7 +64,6 @@ export default function Nav_bar() {
               </Button>
             </InputGroup>
           </div>
-        </Nav>
       </Navbar>
       </div>
     </div>

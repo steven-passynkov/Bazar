@@ -2,6 +2,8 @@
     background-color: #00008b;
     margin-top:0.5%;
     height: 70px;
+    margin-bottom: 2rem;
+    max-width: 10000px;;
 }
 
 
@@ -20,7 +22,7 @@
 
 .navbar .navbar-brand {
     position:absolute;
-    left:11%;
+    left:12rem;
     top: -0.6rem;
     font-size: 45px;
     color:white;
@@ -41,4 +43,11 @@
 }
 .navbar .sellbtn{
     margin-left: 2rem;
+}
+@media all and (max-width: 1300px){
+    .navbar .searchbar{
+    width:40rem;
+    }
+
+    
 }
