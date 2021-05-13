@@ -10,6 +10,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Pagination } from "../../components/pagination/pagination";
+import Head from "next/head";
 
 export default function search_page() {
   const router = useRouter();
@@ -22,6 +23,10 @@ export default function search_page() {
 
   return (
     <div>
+      <Head>
+        <title>Bazar</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div>
         <Nav_bar />
         <Breadcrumb>

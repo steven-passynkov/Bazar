@@ -16,6 +16,7 @@ import Link from "next/link";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import Head from "next/head";
 
 export default function Product_page() {
   const router = useRouter();
@@ -65,6 +66,13 @@ export default function Product_page() {
     <>
       {loading == false ? (
         <div>
+          <Head>
+            <title>Bazar</title>
+            <meta
+              name="viewport"
+              content="initial-scale=1.0, width=device-width"
+            />
+          </Head>
           <Nav_bar />
           <Container fluid>
             <div className={Product_CSS.Breadcrumb}>
@@ -169,6 +177,14 @@ export default function Product_page() {
       ) : (
         <div className="text-center">
           <span>Loading...</span>
+
+          <Head>
+            <title>Bazar</title>
+            <meta
+              name="viewport"
+              content="initial-scale=1.0, width=device-width"
+            />
+          </Head>
         </div>
       )}
     </>

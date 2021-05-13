@@ -6,10 +6,16 @@ import Card from "react-bootstrap/Card";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
 import Home_css from "../styles/Home.module.css";
+import Head from "next/head";
 
 export default function Home_Page() {
   return (
     <div>
+      <Head>
+        <title>Bazar</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+
       <Nav_bar />
       <div className={Home_css.box}>
         <div style={{ margin: "3rem" }}>
