@@ -41,11 +41,6 @@ export default function Nav_bar() {
 
   return (
     <div>
-      <Head>
-        <title>Bazar</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-
       <Desktop>
         <Card style={{ background: "#00008b" }} />
         <div>
