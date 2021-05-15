@@ -102,8 +102,8 @@ export default function Nav_bar() {
                   <img src="" />
                 </Button>
               </div>
-
-              <InputGroup className="searchbar">
+              <div>
+                <InputGroup className="searchbar">
                   <FormControl
                     placeholder="What do you want"
                     aria-label="What do you want"
@@ -130,8 +130,8 @@ export default function Nav_bar() {
                       Something
                     </NavDropdown.Item>
                   </NavDropdown>
-                  </InputGroup>
-
+                </InputGroup>
+              </div>
             </Nav>
           </Navbar>
         </div>
