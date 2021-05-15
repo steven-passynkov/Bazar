@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
-import { useState} from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import axiosInstance from "../../http/httpInstance";
 import Card from "react-bootstrap/Card";
@@ -40,9 +40,9 @@ export default function Product_page() {
   const handleShow = () => setShowModel(true);
 
   const onConfirm = () => {
-   setShowModel(false);
-   setShowToast(true);
-  }
+    setShowModel(false);
+    setShowToast(true);
+  };
 
   const images = [
     "//placekitten.com/1500/500",
@@ -72,12 +72,9 @@ export default function Product_page() {
   return (
     <div>
       <Head>
-            <title>Bazar</title>
-            <meta
-              name="viewport"
-              content="initial-scale=1.0, width=device-width"
-            />
-          </Head>
+        <title>Bazar</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       {loading == false ? (
         <div>
           <Nav_bar />
@@ -101,7 +98,7 @@ export default function Product_page() {
                 numberItemsMobile={1}
                 items={Carousel_Items.auto_items}
               />
-              <button type="button">Open Lightbox</button>
+              <Button onClick={() => setIsOpen(true)}>Open Lightbox</Button>
             </Card.Body>
           </Card>
 
