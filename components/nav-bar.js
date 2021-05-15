@@ -40,7 +40,7 @@ export default function Nav_bar() {
   };
 
   return (
-    <>
+    <div>
       <Desktop>
         <Card style={{ background: "#00008b" }} />
         <div>
@@ -136,6 +136,6 @@ export default function Nav_bar() {
           </Navbar>
         </div>
       </Mobile>
-    </>
+    </div>
   );
 }
