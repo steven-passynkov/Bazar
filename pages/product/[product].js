@@ -6,8 +6,6 @@ import Carousel_Items from "../../carousel-items.json";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import axiosInstance from "../../http/httpInstance";
@@ -18,13 +16,13 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Head from "next/head";
 import Toast from "react-bootstrap/Toast";
+import FsLightbox from "fslightbox-react";
 
 export default function Product_page() {
   const router = useRouter();
   const { product } = router.query;
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [photoIndex, setPhotoIndex] = useState(0);
+  const [toggler, setToggler] = useState(false);
 
   const [loading, setLoadingData] = useState(true);
   const [name, setName] = useState([]);
@@ -43,13 +41,6 @@ export default function Product_page() {
     setShowModel(false);
     setShowToast(true);
   };
-
-  const images = [
-    "//placekitten.com/1500/500",
-    "//placekitten.com/4000/3000",
-    "//placekitten.com/800/1200",
-    "//placekitten.com/1500/1500",
-  ];
 
   let finalApiRoute = `${`/api/product`}?id=${product}`;
 
@@ -98,31 +89,22 @@ export default function Product_page() {
                 numberItemsMobile={1}
                 items={Carousel_Items.auto_items}
               />
-              <Button onClick={() => setIsOpen(true)}>Open Lightbox</Button>
+              <Button onClick={() => setToggler(!toggler)}>
+                Open Lightbox
+              </Button>
             </Card.Body>
           </Card>
 
           <div>
-            {isOpen && (
-              <Lightbox
-                mainSrc={images[photoIndex]}
-                nextSrc={images[(photoIndex + 1) % images.length]}
-                prevSrc={
-                  images[(photoIndex + images.length - 1) % images.length]
-                }
-                onCloseRequest={() => () => setIsOpen(false)}
-                onMovePrevRequest={() =>
-                  setPhotoIndex(
-                    (photoIndex) => (photoIndex - 1) % images.length
-                  )
-                }
-                onMoveNextRequest={() =>
-                  setPhotoIndex(
-                    (photoIndex) => (photoIndex + 1) % images.length
-                  )
-                }
-              />
-            )}
+            <FsLightbox
+              toggler={toggler}
+              sources={[
+                "//placekitten.com/1500/500",
+                "//placekitten.com/4000/3000",
+                "//placekitten.com/800/1200",
+                "//placekitten.com/1500/1500",
+              ]}
+            />
           </div>
           <div>
             <Modal
@@ -153,27 +135,6 @@ export default function Product_page() {
               </Modal.Footer>
             </Modal>
           </div>
-          <div>
-            <Toast
-              onClose={() => setShowToast(false)}
-              show={showToast}
-              delay={3000}
-              autohide
-            >
-              <Toast.Header>
-                <img
-                  src="holder.js/20x20?text=%20"
-                  className="rounded mr-2"
-                  alt=""
-                />
-                <strong className="mr-auto">Bootstrap</strong>
-                <small>11 mins ago</small>
-              </Toast.Header>
-              <Toast.Body>
-                Woohoo, you're reading this text in a Toast!
-              </Toast.Body>
-            </Toast>
-          </div>
 
           <div className="div_price">
             <h3 className="Price">Price: ${price}</h3>
@@ -199,6 +160,28 @@ export default function Product_page() {
           <Card className="item_info" style={{ width: "18rem" }}>
             <Card.Body>{info}</Card.Body>
           </Card>
+
+          <div>
+            <Toast
+              onClose={() => setShowToast(false)}
+              show={showToast}
+              delay={10000}
+              autohide
+            >
+              <Toast.Header>
+                <img
+                  src="holder.js/20x20?text=%20"
+                  className="rounded mr-2"
+                  alt=""
+                />
+                <strong className="mr-auto">Bootstrap</strong>
+              </Toast.Header>
+              <Toast.Body>
+                Woohoo, you're reading this text in a Toast!
+              </Toast.Body>
+            </Toast>
+          </div>
+
           <Footer />
         </div>
       ) : (
