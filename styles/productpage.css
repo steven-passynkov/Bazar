@@ -21,7 +21,7 @@
     font-size: 2rem;
     position:absolute;
     right: 27.5rem;
-    top: 14rem;
+    top: 15rem;
 }
 
 .messagebtn{
@@ -30,13 +30,13 @@
     font-size: 2rem;
     position:absolute;
     right: 27.5rem;
-    top: 20rem;
+    top: 21rem;
 }
 
 .sellerinfo{
-    height:13rem;
+    height:10rem;
     position: absolute;
-    top: 25.5rem;
+    top: 27rem;
     right: 23.5rem;
     margin-top: 1rem;
     
@@ -61,6 +61,6 @@
 .item_info{
     position: absolute;
     right:23.5rem;
-    top:41.5rem;
+    top:40rem;
     height: 20rem;  
 }

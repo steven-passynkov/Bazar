@@ -81,17 +81,16 @@ export default function Product_page() {
           </Container>
 
           <Card className="text-center" style={{ width: "61rem" }}>
-            <Card.Body>
+            <Card.Body onClick={() => setToggler(!toggler)}>
               <Carousel
+                
                 className="Product_car"
                 numberItemsDesktop={1}
                 numberItemsTable={1}
                 numberItemsMobile={1}
                 items={Carousel_Items.auto_items}
               />
-              <Button onClick={() => setToggler(!toggler)}>
-                Open Lightbox
-              </Button>
+              
             </Card.Body>
           </Card>
 

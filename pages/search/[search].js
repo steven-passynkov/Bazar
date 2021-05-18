@@ -22,9 +22,11 @@ export default function search_page() {
 
   return (
     <div>
-      <div>
-        <Nav_bar />
-        <Breadcrumb>
+
+<Nav_bar />
+      <div className={Search_results_css.breadcrumb}>
+       
+        <Breadcrumb >
           <Breadcrumb.Item href="../../">Home</Breadcrumb.Item>
           <Breadcrumb.Item href="#">Catagory: {}</Breadcrumb.Item>
           <Breadcrumb.Item href="#">Region: {}</Breadcrumb.Item>
