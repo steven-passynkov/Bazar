@@ -52,15 +52,16 @@ export default function Nav_bar() {
               <div>
                 <InputGroup className="searchbar">
                   <FormControl
+                  className="searchbr"
                     placeholder="What do you want"
                     aria-label="What do you want"
                     aria-describedby="basic-addon2"
                   />
-                  <InputGroup.Append>
+                  
                     <Button variant="light" className="searchb">
                       Search
                     </Button>
-                  </InputGroup.Append>
+                  
 
                   <NavDropdown
                     title="Categories"

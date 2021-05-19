@@ -16,13 +16,14 @@
     background-color: rgb(255, 255, 255);
     color:black;
     border-radius: 5px;
-    margin-left:2rem
+    margin-left:1rem;
+    height:3rem;
 }
 
 
 .navbar .navbar-brand {
     position:absolute;
-    left:12rem;
+    left:13rem;
     top: -0.6rem;
     font-size: 45px;
     color:white;
@@ -35,18 +36,37 @@
 .navbar .searchbar{
     width: 60rem;
     margin-left: 20rem;
+    border-radius: 10px;
+    
 }
 
 .navbar .searchb{
-    margin-left:2rem;
-    border-radius: 5px;
+    margin-left:1rem;
+    border-radius: 3px;
+    height:3rem;
 }
 .navbar .sellbtn{
-    margin-left: 2rem;
+    margin-right: -27rem;
+    margin-left:20rem;
+   
+    height:3.2rem;
+    width:4rem;
+    font-size: larger;
+}
+
+.navbar .searchbr{
+    height: 3rem;
+    border-radius: 0.5rem;
+    
 }
 @media all and (max-width: 1300px){
     .navbar .searchbar{
     width:40rem;
+    }
+
+    .navbar .sellbtn{
+        left:40rem;
+        
     }
 
     
