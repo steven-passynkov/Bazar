@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import "react-multi-carousel/lib/styles.css";
 import Item from "./carousel-item";
 
-export default function Carousel_PayedPost({
+export default function Carousel_Home({
   numberItemsDesktop,
   numberItemsTable,
   numberItemsMobile,

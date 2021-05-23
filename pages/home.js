@@ -1,5 +1,5 @@
 import Nav_bar from "../components/nav-bar";
-import Carousel_PayedPost from "../components/carousel-paidAds";
+import Carousel_PayedPost from "../components/carousel/carousel-home";
 import Carousel_Items from "../carousel-items";
 import Footer from "../components/footer";
 import Card from "react-bootstrap/Card";

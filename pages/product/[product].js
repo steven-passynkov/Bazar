@@ -1,12 +1,12 @@
 import Nav_bar from "../../components/nav-bar";
 import Footer from "../../components/footer";
 import Product_CSS from "../../styles/product-page.module.css";
-import Carousel from "../../components/carousel-paidAds";
+import Carousel from "../../components/carousel/carousel-paidAds";
 import Carousel_Items from "../../carousel-items.json";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axiosInstance from "../../http/httpInstance";
 import Card from "react-bootstrap/Card";
@@ -17,12 +17,16 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Head from "next/head";
 import Toast from "react-bootstrap/Toast";
 import FsLightbox from "fslightbox-react";
+import Spinner from "../../components/spinner";
 
 export default function Product_page() {
   const router = useRouter();
   const { product } = router.query;
 
   const [toggler, setToggler] = useState(false);
+
+  const [alert, setAlert] = useState(true);
+  const [value, setValue] = useState(null);
 
   const [loading, setLoadingData] = useState(true);
   const [name, setName] = useState([]);
@@ -37,12 +41,27 @@ export default function Product_page() {
   const handleClose = () => setShowModel(false);
   const handleShow = () => setShowModel(true);
 
+  const [handleMessage, setHandleMessage] = useState(false);
+  const handleMessageClose = () => setHandleMessage(false);
+  const handleMessageShow = () => setHandleMessage(true);
+
   const onConfirm = () => {
     setShowModel(false);
     setShowToast(true);
   };
 
   let finalApiRoute = `${`/api/product`}?id=${product}`;
+
+  useEffect(()=> {
+    if(value === null) {
+      return;
+    }
+    if (value === '') {
+      setAlert(true);
+    } else {
+      setAlert(false);
+    }
+  }, [value]);
 
   axiosInstance
     .get(finalApiRoute)
@@ -88,10 +107,8 @@ export default function Product_page() {
                 numberItemsTable={1}
                 numberItemsMobile={1}
                 items={Carousel_Items.auto_items}
+                onClick={() => setToggler(!toggler)}
               />
-              <Button onClick={() => setToggler(!toggler)}>
-                Open Lightbox
-              </Button>
             </Card.Body>
           </Card>
 
@@ -121,7 +138,28 @@ export default function Product_page() {
                 <Form>
                   <InputGroup>
                     <InputGroup.Text>$</InputGroup.Text>
-                    <Form.Control />
+                    <>
+                      {alert == false ? (
+                        <Form.Control
+                          type="number"
+                          onChange={() => setValue(event.target.value)}
+                          required
+                          isValid
+                        />
+                      ) : (
+                        <>
+                          <Form.Control
+                            type="number"
+                            onChange={() => setValue(event.target.value)}
+                            required
+                            isInvalid
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            Please select an amount
+                          </Form.Control.Feedback>
+                        </>
+                      )}
+                    </>
                   </InputGroup>
                 </Form>
               </Modal.Body>
@@ -131,6 +169,29 @@ export default function Product_page() {
                 </Button>
                 <Button variant="primary" onClick={onConfirm}>
                   Confirm
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </div>
+
+          <div>
+            <Modal
+              show={handleMessage}
+              onHide={handleMessageClose}
+              backdrop="static"
+              keyboard={false}
+              centered
+            >
+              <Modal.Header closeButton>
+                <Modal.Title>Contact {name}</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                I will not close if you click outside me. Don't even try to
+                press escape key.
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="primary" onClick={handleMessageClose}>
+                  Close
                 </Button>
               </Modal.Footer>
             </Modal>
@@ -152,7 +213,9 @@ export default function Product_page() {
           <Button className="offerbtn" onClick={handleShow}>
             Make offer
           </Button>
-          <Button className="messagebtn">Contact seller</Button>
+          <Button className="messagebtn" onClick={handleMessageShow}>
+            Contact seller
+          </Button>
           <Card className="description" style={{ width: "61rem" }}>
             <Card.Body>{description}</Card.Body>
           </Card>
@@ -186,7 +249,7 @@ export default function Product_page() {
         </div>
       ) : (
         <div className="text-center">
-          <span>Loading...</span>
+          <Spinner />
         </div>
       )}
     </div>

@@ -55,9 +55,10 @@ export default function Nav_bar() {
                     placeholder="What do you want"
                     aria-label="What do you want"
                     aria-describedby="basic-addon2"
+                    onSubmit={handleSubmit}
                   />
                   <InputGroup.Append>
-                    <Button variant="light" className="searchb">
+                    <Button variant="light" className="searchb" onClick={handleSubmit}>
                       Search
                     </Button>
                   </InputGroup.Append>
@@ -77,7 +78,6 @@ export default function Nav_bar() {
                       Something
                     </NavDropdown.Item>
                   </NavDropdown>
-
                   <Button variant="light" className="sellbtn">
                     Sell
                     <img src="" />
