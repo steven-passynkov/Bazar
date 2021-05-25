@@ -10,6 +10,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Pagination } from "../../components/pagination/pagination";
+import Loadingscreen from "../../components/layout/loadingscreen";
 
 export default function search_page() {
   const router = useRouter();
@@ -21,6 +22,7 @@ export default function search_page() {
   const [isSearchingData, setSearchingData] = useState(false);
 
   return (
+    
     <div>
       <div>
         <Nav_bar />
