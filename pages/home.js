@@ -6,15 +6,28 @@ import Card from "react-bootstrap/Card";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
 import Home_css from "../styles/Home.module.css";
+import { useEffect, useState } from "react";
 
 export default function Home_Page() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    loadPing();
+  }, []);
+
+  const loadPing = async () => {
+    const res = await fetch("http://127.0.0.1:5000/ping");
+    const data = await res.json();
+    setData(data);
+  };
+
   return (
     <div>
       <Nav_bar />
       <div className={Home_css.box}>
         <div style={{ margin: "3rem" }}>
           <Jumbotron>
-            <h1>Sell Now!</h1>
+            <h1>Sell Now! {data ? JSON.stringify(data): 'Loading...'}</h1>
             <p>
               <Button variant="primary">Sell</Button>
             </p>

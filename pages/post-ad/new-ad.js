@@ -6,27 +6,36 @@ import "react-step-progress/dist/index.css";
 import Step1 from "../../components/StepProgressBar/step1";
 import Step2 from "../../components/StepProgressBar/step2";
 import Step3 from "../../components/StepProgressBar/step3";
+import { useRef } from "react";
 
 export default function new_ad() {
-  const step1Content = <Step1 />;
-  const step2Content = <Step2 />;
-  const step3Content = <Step3 />;
+  const curIsValid1 = useRef(false);
+  const curIsValid2 = useRef(false);
+  const curIsValid3 = useRef(false);
 
-  function step1Validator() {
-    return true;
-  }
+  const step1Content = (
+    <Step1
+      onUpdateValidator={(value) => {
+        curIsValid1.current = value;
+      }}
+    />
+  );
+  const step2Content = (
+    <Step2
+      onUpdateValidator={(value) => {
+        curIsValid2.current = value;
+      }}
+    />
+  );
+  const step3Content = (
+    <Step3
+      onUpdateValidator={(value) => {
+        curIsValid3.current = value;
+      }}
+    />
+  );
 
-  function step2Validator() {
-    return true;
-  }
-
-  function step3Validator() {
-    return true;
-  }
-
-  function onFormSubmit() {
-
-  }
+  function onFormSubmit() {}
 
   return (
     <div>
@@ -43,19 +52,19 @@ export default function new_ad() {
             label: "Step 1",
             name: "step 1",
             content: step1Content,
-            validator: step1Validator,
+            validator: () => curIsValid1.current,
           },
           {
             label: "Step 2",
             name: "step 2",
             content: step2Content,
-            validator: step2Validator,
+            validator: () => curIsValid2.current,
           },
           {
             label: "Step 3",
             name: "step 3",
             content: step3Content,
-            validator: step3Validator,
+            validator: () => curIsValid3.current,
           },
         ]}
       />

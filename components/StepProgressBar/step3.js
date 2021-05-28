@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 
-export default function step1() {
+export default function step1({ onUpdateValidator }) {
   const [alert, setAlert] = useState(true);
   const [value, setValue] = useState(null);
+  const [validator, setValidator] = useState(false);
 
   const [filealert, setFileAlert] = useState(true);
   const [filevalue, setFileValue] = useState(null);
@@ -30,6 +31,20 @@ export default function step1() {
     }
   }, [filevalue]);
 
+  useEffect(() => {
+    if (value === null) {
+      setValidator(false);
+    }
+    if (value === null) {
+      setValidator(false);
+    } else {
+      setValidator(true);
+    }
+  }, [value]);
+
+  useEffect(() => {
+    onUpdateValidator(validator);
+  }, [validator]);
 
   return (
     <div>
@@ -69,9 +84,7 @@ export default function step1() {
           <div className="mb-3">
             <Form.File id="formcheck-api-custom" custom>
               <Form.File.Input isInvalid />
-              <Form.File.Label>
-                Custom file input
-              </Form.File.Label>
+              <Form.File.Label>Custom file input</Form.File.Label>
               <Form.Control.Feedback type="isInvalid">
                 Please select a file
               </Form.Control.Feedback>
