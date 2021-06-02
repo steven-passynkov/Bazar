@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 
-export default function step2({onUpdateValidator}) {
+export default function step2({ onUpdateValidator }) {
   const [alert, setAlert] = useState(true);
   const [value, setValue] = useState(null);
-  const [validator, setValidator] = useState(false)
+  const [validator, setValidator] = useState(false);
 
   useEffect(() => {
     if (value === null) {
@@ -19,7 +19,7 @@ export default function step2({onUpdateValidator}) {
 
   useEffect(() => {
     if (value === null) {
-    setValidator(false);
+      setValidator(false);
     }
     if (value === null) {
       setValidator(false);
@@ -28,7 +28,7 @@ export default function step2({onUpdateValidator}) {
     }
   }, [value]);
 
-  useEffect(()=> {
+  useEffect(() => {
     onUpdateValidator(validator);
   }, [validator]);
 
