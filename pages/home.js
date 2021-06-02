@@ -7,10 +7,11 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
 import Home_css from "../styles/Home.module.css";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Home_Page() {
   const [data, setData] = useState(null);
-
+  /*
   useEffect(() => {
     loadPing();
   }, []);
@@ -20,6 +21,14 @@ export default function Home_Page() {
     const data = await res.json();
     setData(data);
   };
+*/
+
+  axios({
+    method: "get",
+    url: "http://127.0.0.1:5000/ping",
+  }).then(function (response) {
+    setData(response);
+  });
 
   return (
     <div>
@@ -27,7 +36,7 @@ export default function Home_Page() {
       <div className={Home_css.box}>
         <div style={{ margin: "3rem" }}>
           <Jumbotron>
-            <h1>Sell Now! {data ? JSON.stringify(data): 'Loading...'}</h1>
+            <h1>Sell Now! {data ? JSON.stringify(data) : "Loading..."}</h1>
             <p>
               <Button variant="primary">Sell</Button>
             </p>

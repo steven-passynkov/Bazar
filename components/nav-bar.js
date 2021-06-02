@@ -75,7 +75,7 @@ export default function Nav_bar() {
                       Something
                     </NavDropdown.Item>
                   </NavDropdown>
-                  <Button variant="light" className="sellbtn">
+                  <Button variant="light" className="sellbtn" href={"../post-ad/new-ad"}>
                     Sell
                     <img src="" />
                   </Button>
@@ -128,6 +128,9 @@ export default function Nav_bar() {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </InputGroup>
+                <Navbar href="api/auth/login" variant="light">
+                Bozar
+              </Navbar>
               </div>
             </Nav>
           </Navbar>
