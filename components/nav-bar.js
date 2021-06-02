@@ -128,6 +128,9 @@ export default function Nav_bar() {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </InputGroup>
+                <Navbar href="api/auth/login" variant="light">
+                Bozar
+              </Navbar>
               </div>
             </Nav>
           </Navbar>
