@@ -3,13 +3,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/navbar.css";
 import "../styles/productpage.css";
 import "../styles/spinner.css";
-import { Provider } from "next-auth/client";
+import { UserProvider } from "@auth0/nextjs-auth0";
 
 function MyApp({ Component, pageProps }) {
   return (
-      <Provider session={pageProps.session}>
-        <Component {...pageProps} />
-      </Provider>
+    <UserProvider>
+      <Component {...pageProps} />
+    </UserProvider>
   );
 }
 
