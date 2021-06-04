@@ -97,7 +97,8 @@ export default function Nav_bar() {
             </Navbar>
           </div>
         </Desktop>
-        <Mobile>
+        <Tablet>
+        
           <Card style={{ background: "#00008b" }} />
           <div>
             <Navbar expand="lg" className="justify-content-between">
@@ -145,7 +146,8 @@ export default function Nav_bar() {
               </Nav>
             </Navbar>
           </div>
-        </Mobile>
+        
+        </Tablet>
       </div>
     );
   } else {
