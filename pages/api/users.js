@@ -9,7 +9,7 @@ export default async(req, res, next) => {
   var options = {
     method: "GET",
     url: "https://dev-y75e739g.us.auth0.com/api/v2/users",
-    params: { q: 'nickname:"passynkovsteven"', search_engine: "v3" },
+    params: { q: `nickname:"${req.query.name}"`, search_engine: "v3" },
     headers: { authorization: `Bearer ${token}` },
   };
 
