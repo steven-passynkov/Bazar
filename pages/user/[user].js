@@ -3,14 +3,49 @@ import Footer from "../../components/footer";
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 import ReactStars from "react-rating-stars-component";
+import { useRouter } from "next/router";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function Profile_page() {
+  const router = useRouter();
+  const { user } = router.query;
+  const [data, setData] = useState(null);
+
   const firstExample = {
     size: 30,
     value: 2.5,
     edit: false,
     isHalf: true,
   };
+/*
+  useEffect(() => {
+    getUserData();
+  }, []);
+
+  const getUserData = async () => {
+    const res = await fetch(
+      `http://localhost:3000/api/users?name=${user}&token=${process.env.AUTH0_API_TOKEN}`
+    );
+    const data = await res.json();
+    setData(data);
+  };*/
+
+  
+  useEffect(() => {
+    getUserData();
+  }, []);
+
+  const getUserData = () => {
+    axios({
+      method: "get",
+      url: `http://localhost:3000/api/users?name=${user}&token=${process.env.AUTH0_API_TOKEN}`,
+    }).then(function (response) {
+      setData(response);
+    });
+  };
+  
+  console.log(JSON.stringify(data));
   return (
     <div>
       <Nav_bar />
