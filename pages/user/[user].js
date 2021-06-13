@@ -33,8 +33,10 @@ export default function Profile_page() {
 
   
   useEffect(() => {
-    getUserData();
-  }, []);
+    if(user) {
+      getUserData();
+    }
+  }, [user]);
 
   const getUserData = () => {
     axios({
