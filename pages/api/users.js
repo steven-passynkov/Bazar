@@ -1,5 +1,6 @@
 var axios = require("axios").default;
 
+
 /* GET users listing. */
 
 export default async(req, res, next) => {

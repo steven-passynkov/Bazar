@@ -18,22 +18,9 @@ export default function Profile_page() {
     edit: false,
     isHalf: true,
   };
-/*
-  useEffect(() => {
-    getUserData();
-  }, []);
 
-  const getUserData = async () => {
-    const res = await fetch(
-      `http://localhost:3000/api/users?name=${user}&token=${process.env.AUTH0_API_TOKEN}`
-    );
-    const data = await res.json();
-    setData(data);
-  };*/
-
-  
   useEffect(() => {
-    if(user) {
+    if (user) {
       getUserData();
     }
   }, [user]);
@@ -43,30 +30,36 @@ export default function Profile_page() {
       method: "get",
       url: `http://localhost:3000/api/users?name=${user}&token=${process.env.AUTH0_API_TOKEN}`,
     }).then(function (response) {
-      setData(response);
+      setData(response.data[0]);
     });
   };
-  
+
   console.log(JSON.stringify(data));
   return (
-    <div>
-      <Nav_bar />
-      <Card>
-        <Card>
-          <Image
-            src="https://s.gravatar.com/avatar/7700bc1c68d6350fbf9cce29c5cb0090?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fpa.png"
-            roundedCircle
-            fluid
-          />
-        </Card>
-        <Card.Header>Name</Card.Header>
-        <Card.Text>Date joined: </Card.Text>
-        <Card.Text>Number of items sold</Card.Text>
-        <Card.Text>Avrage rating</Card.Text>
-        <ReactStars {...firstExample} />
-        <Card.Text>Name adds</Card.Text>
-      </Card>
-      <Footer />
-    </div>
+    <>
+      {data == null ? (
+        <p>loading</p>
+      ) : (
+        <div>
+          <Nav_bar />
+          <Card>
+            <Card>
+              <Image
+                src={data.picture}
+                roundedCircle
+                fluid
+              />
+            </Card>
+            <Card.Header>{data.nickname}</Card.Header>
+            <Card.Text>Date joined: {data.created_at}</Card.Text>
+            <Card.Text>Number of items sold</Card.Text>
+            <Card.Text>Avrage rating</Card.Text>
+            <ReactStars {...firstExample} />
+            <Card.Text>Name adds</Card.Text>
+          </Card>
+          <Footer />
+        </div>
+      )}
+    </>
   );
 }
