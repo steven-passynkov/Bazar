@@ -47,10 +47,10 @@ export default function step2({ onUpdateValidator }) {
             <Form.Control
               onChange={() => setValue(event.target.value)}
               required
-              isInvalid
+              
             />
-            <Form.Control.Feedback type="invalid">
-              Please enter a name
+            <Form.Control.Feedback type="Valid">
+              Please enter the title of your add
             </Form.Control.Feedback>
           </>
         )}

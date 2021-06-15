@@ -61,7 +61,7 @@ export default function step1({ onUpdateValidator }) {
             <Form.Control
               onChange={() => setValue(event.target.value)}
               required
-              isInvalid
+              
             />
             <Form.Control.Feedback type="invalid">
               Please enter a discription
