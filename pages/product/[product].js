@@ -99,7 +99,7 @@ export default function Product_page() {
             </div>
           </Container>
 
-          <Card className="text-center" style={{ width: "61rem" }}>
+          <Card className="text-center" >
             <Card.Body>
               <Carousel
                 className="Product_car"
@@ -216,7 +216,11 @@ export default function Product_page() {
           <Button className="messagebtn" onClick={handleMessageShow}>
             Contact seller
           </Button>
+<<<<<<< HEAD
           <Card className="description">
+=======
+          <Card className="description" >
+>>>>>>> db2f28963a6b1e16c5cd03c175532b66edb5493a
             <Card.Body>{description}</Card.Body>
           </Card>
 

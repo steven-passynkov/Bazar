@@ -13,8 +13,7 @@ import { useUser } from "@auth0/nextjs-auth0";
 export default function Nav_bar() {
   const titleRef = useRef(0);
   const router = useRouter();
-  const { user, error, isLoading } = useUser();
-  const [log, setLog] = useState(true);
+  const { user } = useUser();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -33,10 +32,6 @@ export default function Nav_bar() {
   const Mobile = ({ children }) => {
     const isMobile = useMediaQuery({ maxWidth: 767 });
     return isMobile ? children : null;
-  };
-  const Default = ({ children }) => {
-    const isNotMobile = useMediaQuery({ minWidth: 768 });
-    return isNotMobile ? children : null;
   };
 
   if (user) {
@@ -97,8 +92,7 @@ export default function Nav_bar() {
             </Navbar>
           </div>
         </Desktop>
-        <Tablet>
-        
+        <Mobile>
           <Card style={{ background: "#00008b" }} />
           <div>
             <Navbar expand="lg" className="justify-content-between">
@@ -146,8 +140,7 @@ export default function Nav_bar() {
               </Nav>
             </Navbar>
           </div>
-        
-        </Tablet>
+        </Mobile>
       </div>
     );
   } else {
