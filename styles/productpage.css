@@ -1,14 +1,16 @@
 .Price{
     font-size:3rem;
-    margin-left: 79rem;
+    left: 79rem;
     color:#00008B;
     position:absolute; 
-    top: 10rem;
+    top: 44rem;
     
 }
 .text-center{
-    margin-left: 12rem;
+    position:relative;
+    left: 12rem;
     margin-top: 5rem;
+    width:61rem;
 }
 
 .product_car{
@@ -20,8 +22,8 @@
     height: 5rem;
     font-size: 2rem;
     position:absolute;
-    right: 27.5rem;
-    top: 14rem;
+    left: 79rem;
+    top: 49rem;
 }
 
 .messagebtn{
@@ -29,15 +31,15 @@
     height: 5rem;
     font-size: 2rem;
     position:absolute;
-    right: 27.5rem;
-    top: 20rem;
+    left: 79rem;
+    top: 55rem;
 }
 
 .sellerinfo{
     height:13rem;
     position: absolute;
-    top: 25.5rem;
-    right: 23.5rem;
+    top: 18rem;
+    left: 79rem;
     margin-top: 1rem;
     
 
@@ -45,22 +47,138 @@
 
 .description{
     height: 20rem;
-    margin-left:12rem;
-    margin-top: 2rem;
-    margin-bottom: 5rem;
+    position:relative;
+    left:12rem;
+    top:2rem;
+    width:42rem;
+    margin-bottom: 20rem;
+  
 }
 
 .product_title{
-    margin-left:12rem;
+    position: absolute;
+    left:79rem;
     font-size: 3rem;
     position: absolute;
-    top: 10rem;
+    top: 14.5rem;
     color:#00008B;
 }
 
 .item_info{
     position: absolute;
-    right:23.5rem;
-    top:41.5rem;
-    height: 20rem;  
+    left: 55rem;
+    top: 40rem;
+    height: 20rem;
+    width:18rem; 
+}
+
+
+@media all and (max-width: 1500px){
+
+    .description{
+        width:30rem;
+    }
+
+    .item_info{
+        left:43rem;
+    }
+
+    .text-center{
+        width:49rem;
+    }
+
+    .product_title{
+        left:68rem;
+    }
+
+    .sellerinfo{
+        left:68rem;
+    }
+
+    .messagebtn{
+        left:68rem;
+    }
+
+    .offerbtn{
+        left:68rem;
+    }
+
+    .Price{
+
+        left:68rem;
+    }
+}
+
+
+@media all and (max-width: 1300px){
+
+    .description{
+        width:24rem;
+    }
+
+    .item_info{
+        left: 37rem;
+        width:12rem;
+    }
+
+    .text-center{
+        width:37rem;
+    }
+
+    .product_title{
+        left:57rem;
+    }
+
+    .sellerinfo{
+        left:57rem;
+    }
+
+    .messagebtn{
+        left:57rem;
+    }
+
+    .offerbtn{
+        left:57rem;
+    }
+
+    .Price{
+
+        left:57rem;
+    }
+}
+
+@media all and (max-width: 1050px){
+
+    .text-center{
+        left: 6rem;
+    }
+
+    .description{
+        left:6rem;
+    }
+
+    .item_info{
+        left:31rem;
+    }
+
+    .product_title{
+        left: 48rem;
+    }
+
+    .sellerinfo{
+        left:48rem;
+    }
+
+    .messagebtn{
+        left:48rem;
+    }
+
+    .offerbtn{
+        left:48rem;
+    }
+
+    .Price{
+
+        left:48rem;
+    }
 }
