@@ -1,7 +1,4 @@
 var axios = require("axios").default;
-//const redis = require("redis").default;
-
-//const redisClient = redis.createClient(6379)
 
 export default async (req, res) => {
   var options = {

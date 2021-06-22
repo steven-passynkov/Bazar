@@ -12,7 +12,7 @@ export default function Profile_page() {
   const { user } = router.query;
   const [data, setData] = useState(null);
 
-  const firstExample = {
+  const starts = {
     size: 30,
     value: 2.5,
     edit: false,
@@ -28,13 +28,12 @@ export default function Profile_page() {
   const getUserData = () => {
     axios({
       method: "get",
-      url: `http://localhost:3000/api/users?name=${user}&token=${process.env.AUTH0_API_TOKEN}`,
+      url: `http://localhost:3000/api/users?name=${user}`,
     }).then(function (response) {
       setData(response.data[0]);
     });
   };
 
-  console.log(JSON.stringify(data));
   return (
     <>
       {data == null ? (
@@ -54,7 +53,7 @@ export default function Profile_page() {
             <Card.Text>Date joined: {data.created_at}</Card.Text>
             <Card.Text>Number of items sold</Card.Text>
             <Card.Text>Avrage rating</Card.Text>
-            <ReactStars {...firstExample} />
+            <ReactStars {...stars} />
             <Card.Text>Name adds</Card.Text>
           </Card>
           <Footer />
