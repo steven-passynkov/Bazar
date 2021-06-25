@@ -44,7 +44,7 @@ export default function Carousel_Home({
         renderButtonGroupOutside={false}
         renderDotsOutside={false}
         customTransition="ease-in-out"
-        transitionDuration={500}
+        transitionDuration={1000}
         containerClass="carousel-container"
         removeArrowOnDeviceType={["tablet", "mobile"]}
         dotListClass="custom-dot-list-style"
