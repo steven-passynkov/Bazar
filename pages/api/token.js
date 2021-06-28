@@ -20,20 +20,4 @@ export default async (req, res) => {
     console.error(e);
     res.status(500).end(e.message);
   }
-
- /* app.get("/api/token", (req, res) => {
-      
-    try {
-        redisClient.get(token, (err, data) => {
-          if (err) {
-            console.error(err);
-            throw err;
-          }
-          if (data) {
-            console.log("User successfully retrieved from Redis");
-    
-            res.status(200).send(JSON.parse(data));      
-  } catch (e) {
-    console.error(e);
-    res.status(500).send({ error: e.message });*/
 };

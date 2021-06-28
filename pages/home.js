@@ -19,7 +19,7 @@ export default function Home_Page() {
             </p>
           </Jumbotron>
         </div>
-        <Card className="text-center" style={{ margin: "4rem" }}>
+        <Card className="text-center" style={{ margin: "3rem" }}>
           <Card.Header style={{ color: "#00008b" }}>
             <strong>Trending</strong>
           </Card.Header>
@@ -32,7 +32,7 @@ export default function Home_Page() {
             />
           </Card.Body>
         </Card>
-        <Card className="text-center" style={{ margin: "4rem" }}>
+        <Card className="text-center" style={{ margin: "3rem" }}>
           <Card.Header style={{ color: "#00008b" }}>
             <strong>Auto</strong>
           </Card.Header>
