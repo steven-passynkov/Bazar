@@ -9,6 +9,7 @@ import { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
 import { useUser } from "@auth0/nextjs-auth0";
+import { FaBeer} from "react-icons/fa";
 
 export default function Nav_bar() {
   const titleRef = useRef(0);
@@ -46,22 +47,23 @@ export default function Nav_bar() {
                   Bozar
                 </Navbar.Brand>
                 <div>
-                  <InputGroup className="searchbar">
+                  
                     <FormControl
+                      className="Search"
                       placeholder="What do you want"
                       aria-label="What do you want"
                       aria-describedby="basic-addon2"
                       onSubmit={handleSubmit}
                     />
-                    <InputGroup.Append>
+                    
                       <Button
-                        variant="light"
                         className="searchb"
                         onClick={handleSubmit}
                       >
-                        Search
-                      </Button>
-                    </InputGroup.Append>
+                        <FaBeer size={30} />
+                       </Button>
+                      
+                    
                     <NavDropdown
                       title="Categories"
                       id="basic-nav-dropdown"
@@ -86,7 +88,6 @@ export default function Nav_bar() {
                       <img src="" />
                     </Button>
                     <Button href="api/auth/logout">Logout</Button>
-                  </InputGroup>
                 </div>
               </Nav>
             </Navbar>
@@ -115,8 +116,10 @@ export default function Nav_bar() {
                       aria-describedby="basic-addon2"
                     />
                     <InputGroup.Append>
-                      <Button variant="light" className="searchb">
-                        Search
+                      <Button variant="light" className="searchb"                       
+                        className="searchb"
+                        onClick={handleSubmit}
+                      >
                       </Button>
                     </InputGroup.Append>
 
@@ -155,22 +158,21 @@ export default function Nav_bar() {
                   Bozar
                 </Navbar.Brand>
                 <div>
-                  <InputGroup className="searchbar">
+                  
                     <FormControl
+                      className="searchbar"
                       placeholder="What do you want"
                       aria-label="What do you want"
                       aria-describedby="basic-addon2"
                       onSubmit={handleSubmit}
                     />
-                    <InputGroup.Append>
                       <Button
                         variant="light"
                         className="searchb"
                         onClick={handleSubmit}
                       >
-                        Search
+                        <img src="./public/search-outline.svg"></img>
                       </Button>
-                    </InputGroup.Append>
                     <NavDropdown
                       title="Categories"
                       id="basic-nav-dropdown"
@@ -195,7 +197,7 @@ export default function Nav_bar() {
                       <img src="" />
                     </Button>
                     <Button href="api/auth/login">Login</Button>
-                  </InputGroup>
+                  
                 </div>
               </Nav>
             </Navbar>
@@ -219,6 +221,7 @@ export default function Nav_bar() {
                 <div>
                   <InputGroup className="searchbar">
                     <FormControl
+                      
                       placeholder="What do you want"
                       aria-label="What do you want"
                       aria-describedby="basic-addon2"
