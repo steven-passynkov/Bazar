@@ -12,7 +12,7 @@
     height:44px;
 }
 
-.navbar .dropdown  {
+ .dropdown  {
     background-color: rgb(255, 255, 255);
     color:black;
     border-radius: 5px;
@@ -36,7 +36,7 @@
     color: white;
 }
 
-.navbar .searchbar{
+ .searchbar{
     position:absolute;
     top: 1rem;
     height:2.6rem;
@@ -46,8 +46,8 @@
 
 
 
-.navbar .sellbtn{
-    position:absolute;
+ .sellbtn{
+    position: absolute;
     left:80rem;
     top:1rem;
     height:2.6rem;
@@ -56,9 +56,9 @@
 }
 
 
-.navbar .searchb{
-    background-color: white;
+ .searchb{
     position:absolute;
+    background-color: white;
     top:1rem;
     left:48rem;
     height: 2.6rem;  
@@ -66,4 +66,40 @@
     width: 4rem; 
 
 }
+
+@media screen and (max-width: 1300px){
+
+    .sellbtn{
+    left:60rem;
+}
+
+
+
+}
+
+@media screen and (min-width: 1500px){
+
+    .sellbtn{
+    left:90rem;
+}
+
+
+    .searchbar{
+        width:50rem;
+    }
+
+    .searchb{
+        left: 64rem;
+        width:6rem;
+    }
+
+    .dropdown{
+        left:56.4rem;
+    }
+
+
+
+}
+
+
 
