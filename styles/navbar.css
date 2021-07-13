@@ -14,12 +14,13 @@
 
  .dropdown  {
     background-color: rgb(255, 255, 255);
+    position: absolute;
     color:black;
     border-radius: 5px;
     width:7rem;
     height:2.6rem;
-    top:1.3rem;
-    left:40.1rem;
+    top:1rem;
+    left:41.2em;
     border: 1px black;
 }
 
@@ -53,6 +54,7 @@
     height:2.6rem;
     padding:1;
     font-size: large;
+    background-color: #FFE069;
 }
 
 
@@ -67,20 +69,100 @@
 
 }
 
+.login{
+    position: absolute;
+    left:72rem;
+    top:1.1rem;
+    color: #FFE069;
+}
+
+.SignUp{
+    position: absolute;
+    left:66rem;
+    top:1.1rem;
+    color: #FFE069;
+}
+
+.Or{
+    left:71rem;
+    position: absolute;
+    color: #FFE069;
+    top: 1.3rem;
+    font-size: larger;
+}
 @media screen and (max-width: 1300px){
 
     .sellbtn{
-    left:60rem;
+    left:70rem;
 }
 
+ .SignUp{
+     left:56rem;
+ }
 
+.Or{
+    left:61rem;
+}
+
+.login{
+    left:62rem;
+}
 
 }
+
+@media screen and (max-width: 1200px){
+
+
+    .searchbar{
+        width:20rem;
+    }
+
+    .dropdown{
+        width:4rem;
+        font-size: small;
+        padding-top: 0.2rem;
+    }
+
+    .searchb{
+        width:1.71rem;
+        left:39rem;
+        font-size:xx-small;
+    }
+    .sellbtn{
+    left:58rem;
+}
+
+ .SignUp{
+     left:44rem;
+ }
+
+.Or{
+    left:49rem;
+}
+
+.login{
+    left:50rem;
+}
+
+}
+
 
 @media screen and (min-width: 1500px){
 
     .sellbtn{
     left:90rem;
+}
+
+.SignUp{
+    left:76rem;
+}
+
+.Or{
+    left:81rem;;
+}
+
+.login{
+    left:82rem;
 }
 
 

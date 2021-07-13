@@ -9,7 +9,7 @@ import { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
 import { useUser } from "@auth0/nextjs-auth0";
-import { FaBeer} from "react-icons/fa";
+import { Search} from "react-icons/fa";
 
 export default function Nav_bar() {
   const titleRef = useRef(0);
@@ -60,7 +60,7 @@ export default function Nav_bar() {
                         className="searchb"
                         onClick={handleSubmit}
                       >
-                        <FaBeer size={30} />
+                        
                        </Button>
                       
                     
@@ -87,7 +87,7 @@ export default function Nav_bar() {
                       Sell
                       <img src="" />
                     </Button>
-                    <Button href="api/auth/logout">Logout</Button>
+                    <Button variant="link" href="api/auth/logout">Logout</Button>
                 </div>
               </Nav>
             </Navbar>
@@ -106,7 +106,7 @@ export default function Nav_bar() {
                     Sell
                     <img src="" />
                   </Button>
-                  <Button href="api/auth/logout">Logout</Button>
+                  <Button variant="link" href="api/auth/logout" className="login" >Logout</Button>
                 </div>
                 <div>
                   <InputGroup className="searchbar">
@@ -171,7 +171,7 @@ export default function Nav_bar() {
                         className="searchb"
                         onClick={handleSubmit}
                       >
-                        <img src="./public/search-outline.svg"></img>
+                        Search
                       </Button>
                     <NavDropdown
                       title="Categories"
@@ -196,7 +196,10 @@ export default function Nav_bar() {
                       Sell
                       <img src="" />
                     </Button>
-                    <Button href="api/auth/login">Login</Button>
+                    <Button variant="link" href="api/auth/login" className="login">Login</Button>
+                    <p className="Or">or</p>
+                    <Button variant="link" href="api/auth/login" className="SignUp">Sign Up</Button>
+
                   
                 </div>
               </Nav>
