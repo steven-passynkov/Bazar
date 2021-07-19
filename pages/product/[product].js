@@ -63,21 +63,25 @@ export default function Product_page() {
     }
   }, [value]);
 
-  axiosInstance
-    .get(finalApiRoute)
-    .then((response) => {
-      setLoadingData(false);
-      setName(response.data.data.name);
-      setId(response.data.data.id);
-      setPrice(response.data.data.price);
-      setTitle(response.data.data.title);
-      setInfo(response.data.data.info);
-      setDescription(response.data.data.description);
-    })
-    .catch((error) => {
-      console.error(error);
-      setLoadingData(false);
-    });
+  useEffect(()=> {
+    if(id) {
+      axiosInstance
+        .get(finalApiRoute)
+        .then((response) => {
+          setLoadingData(false);
+          setName(response.data.data.name);
+          setId(response.data.data.id);
+          setPrice(response.data.data.price);
+          setTitle(response.data.data.title);
+          setInfo(response.data.data.info);
+          setDescription(response.data.data.description);
+        })
+        .catch((error) => {
+          console.error(error);
+          setLoadingData(false);
+        });
+    }
+  }, [id]);
 
   return (
     <div>

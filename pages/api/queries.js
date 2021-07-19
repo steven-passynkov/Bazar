@@ -2,12 +2,13 @@ const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'me',
   host: 'localhost',
-  database: 'api',
-  password: 'password',
-  port: 5432,
+  database: 'bazar',
+  password: 'bazar',
+  port: 4321,
 })
-const getProduct = (request, response) => {
-  pool.query('SELECT * FROM product ORDER BY id ASC', (error, results) => {
+
+export const getProducts = (request, response) => {
+  pool.query("SELECT * FROM product ORDER BY id ASC", (error, results) => {
     if (error) {
       throw error
     }
@@ -15,21 +16,25 @@ const getProduct = (request, response) => {
   })
 }
 
-const getProductById = (request, response) => {
-  const id = parseInt(request.params.id)
-
-  pool.query('SELECT * FROM product WHERE id = $1', [id], (error, results) => {
+export const getProductById = (id, response) => {
+  console.log('response', response)
+  pool.query(`SELECT * FROM product WHERE id = ${id}`, (error, results) => {
     if (error) {
       throw error
     }
-    response.status(200).json(results.rows)
+    
+    console.log('result', results.rows )
+    response.status(200).json({
+      data: results.rows.find((el) => el.id == id),
+    })
   })
 }
 
-const createProduct = (request, response) => {
+export const createProduct = (request, response) => {
   const { name, email } = request.body
 
-  pool.query('INSERT INTO product (myuser, title, price, description, info ) VALUES ($1, $2)', [name, title, price, description, info], (error, results) => {
+  pool.query("INSERT INTO product (myuser, title, price, description, info, payed) VALUES ('', '', '', '', '', '')",
+                  [myuser, title, price, description, info, payed], (error, results) => {
     if (error) {
       throw error
     }
@@ -37,13 +42,13 @@ const createProduct = (request, response) => {
   })
 }
 
-const updateProduct = (request, response) => {
+export const updateProduct = (request, response) => {
   const id = parseInt(request.params.id)
-  const { name, email } = request.body
+  const { title, price, description, info, payed, views } = request.body
 
   pool.query(
-    'UPDATE product SET name = $1, email = $2 WHERE id = $3',
-    [name, email, id],
+    "UPDATE product SET title = '', email =  WHERE id = $3",
+    [title , price, description, info, payed, views,id],
     (error, results) => {
       if (error) {
         throw error
@@ -56,18 +61,18 @@ const updateProduct = (request, response) => {
 const deleteProduct = (request, response) => {
   const id = parseInt(request.params.id)
 
-  pool.query('DELETE FROM product WHERE id = $1', [id], (error, results) => {
+  pool.query("DELETE FROM product WHERE id = $1", [id], (error, results) => {
     if (error) {
       throw error
     }
     response.status(200).send(`Product deleted with ID: ${id}`)
   })
 }
-
+/*
 module.exports = {
   getUsers,
   getUserById,
   createUser,
   updateUser,
   deleteUser,
-}
+}*/

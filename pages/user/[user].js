@@ -48,7 +48,7 @@ export default function Profile_page() {
             </Card>
             <Card.Header>{data.nickname}</Card.Header>
             <Card.Text>Date joined: {data.created_at}</Card.Text>
-            <Card.Text>Number of items sold</Card.Text>
+            <Card.Text>Number of items sold: </Card.Text>
             <Card.Text>Avrage rating</Card.Text>
             <ReactStars {...stars} />
             <Card.Text>Name adds</Card.Text>
