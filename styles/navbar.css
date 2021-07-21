@@ -4,6 +4,7 @@
     height: 70px;
     margin-bottom: 2rem;
     max-width: 10000px;;
+    height:4rem;
 }
 
 
@@ -33,11 +34,11 @@
     color:white;
 }
 
-.navbar  .navbar-brand:hover {
+  .navbar-brand:hover {
     color: white;
 }
 
- .searchbar{
+ .Search{
     position:absolute;
     top: 1rem;
     height:2.6rem;
@@ -90,98 +91,350 @@
     top: 1.3rem;
     font-size: larger;
 }
-@media screen and (max-width: 1300px){
-
-    .sellbtn{
-    left:70rem;
-}
-
- .SignUp{
-     left:56rem;
- }
-
-.Or{
-    left:61rem;
-}
-
-.login{
-    left:62rem;
-}
-
-}
-
-@media screen and (max-width: 1200px){
 
 
-    .searchbar{
-        width:20rem;
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:320px){
+
+    .navbar{
+        height:100px;
+    }
+
+    .navbar .navbar-brand{
+        font-size: 36px;
+        left:4rem;
+        top:-0.6rem;
+    }
+
+    .Search{
+        left:4rem;
+        top:3rem;
+        height:2.6rem;
+        width:16rem;
+        font-size: 12px;
+    }
+
+
+    .searchb{
+        left:19rem;
+        height:2.6rem;
+        top:3rem;
+        padding:1px;
+        width:2rem;
     }
 
     .dropdown{
+        height:2.6rem;
+        top:3rem;
+        left:14rem;
+        width:1rem;
+        font-size: 12px;
+        padding-top: 3px;
+    }
+
+    .sellbtn{
+        left:22rem;
+        top:3rem;
+        height:2.6rem;
+        width:3rem;
+        padding:1px;
+        font-size: 12px;
+    }
+
+    .SignUp{
+        top: 0.5rem;
+        left:17.4rem;
+        font-size: 12px;
+    }
+
+    .Or{
+        top:0.9rem;
+        left:21.5rem;
+        font-size: 12px;
+        color:white;
+    }
+
+    .login{
+        top:0.5rem;
+        left:22.2rem;
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width:481px) {
+    
+    .navbar{
+        height:100px;
+    }
+
+    .navbar .navbar-brand{
+        font-size: 36px;
+        left:4rem;
+        top:-0.6rem;
+    }
+
+    .Search{
+        left:4rem;
+        top:3rem;
+        height:2.6rem;
+        width:18rem;
+        font-size: 12px;
+    }
+
+
+    .searchb{
+        left:20rem;
+        width: 2rem;
+        height:2.6rem;
+        top:3rem;
+        font-size: 12px;
+    }
+
+    .dropdown{
+        height:2.6rem;
+        top:3rem;
+        left:15rem;
         width:4rem;
-        font-size: small;
-        padding-top: 0.2rem;
+        font-size: 12px;
+        padding: 3px;
     }
-
-    .searchb{
-        width:1.71rem;
-        left:39rem;
-        font-size:xx-small;
-    }
-    .sellbtn{
-    left:58rem;
-}
-
- .SignUp{
-     left:44rem;
- }
-
-.Or{
-    left:49rem;
-}
-
-.login{
-    left:50rem;
-}
-
-}
-
-
-@media screen and (min-width: 1500px){
 
     .sellbtn{
-    left:90rem;
-}
-
-.SignUp{
-    left:76rem;
-}
-
-.Or{
-    left:81rem;;
-}
-
-.login{
-    left:82rem;
-}
-
-
-    .searchbar{
-        width:50rem;
+        left:24rem;
+        top:3rem;
+        height:2.6rem;
+        width:3rem;
+        
+        font-size: 14px;
     }
 
-    .searchb{
-        left: 64rem;
-        width:6rem;
+    .SignUp{
+        top: 0.5rem;
+        left:20rem;
+        font-size: 12px;
+    }
+
+    .Or{
+        top:0.9rem;
+        left:23.8rem;
+        font-size: 12px;
+        color:white;
+    }
+
+    .login{
+        top:0.5rem;
+        left:24rem;
+        font-size: 12px;
+    }
+}
+
+
+
+@media screen and (min-width:600px){
+    .SignUp{
+        left:30rem;
+    }
+    .Or{
+        left:33.8rem;
+    }
+
+    .login{
+        left:34rem;
+    }
+
+    .sellbtn{
+        left:34rem;
+    }
+
+    .Search{
+        width: 24rem;
     }
 
     .dropdown{
-        left:56.4rem;
+        left:21rem;
     }
 
+    .searchb{
+        left:26rem;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .sellbtn{
+        padding-top:0.5rem;
+    }
+
+    @media screen and (min-width:850px) {
+        .sellbtn{
+            left:48rem;
+            
+        }
+
+        .login{
+            left:43rem;
+            top:3rem;
+        }
+
+        .Or{
+            left:42.8rem;
+            top:3.4rem;
+        }
+
+        .SignUp{
+            left:39rem;
+            top:3rem;
+        }
+
+        .Search{
+            width: 30rem;
+        }
+
+        .searchb{
+            left:31rem;
+            width:3rem;
+        }
 
 
+        .dropdown{
+            left:26rem;
+        }
+    }
+    
+}
+@media screen and ( min-width:900px){
+    .navbar{
+        height:60px;
+    }
+    
+    
+    .sellbtn{
+        left:50rem;
+        font-size: 16px;
+        padding-top:0.4rem;
+        top:0.5rem;
+
+    }
+
+    .Or{
+        font-size: 14px;;
+        top:1rem;
+        left: 45rem ;
+    }
+
+    .SignUp{
+        font-size:14px;
+        left:40.6rem;
+        top:0.65rem;
+
+    }
+
+    .login{
+        font-size:14px;
+        left:45.6rem;
+        top:0.65rem;
+
+    }
+
+    .Search{
+        left:15rem;
+        top:0.5rem;
+        width:24rem;
+
+    }
+
+    .dropdown{
+        left:32rem;
+        top:0.5rem;
+
+    }
+
+    .searchb{
+        left:37rem;
+        top:0.5rem;
+        width: 2rem;
+    }
+
+    .navbar .navbar-brand{
+        left:8rem;
+    }
 }
 
 
 
+@media screen and (min-width:1000px) {
+    .sellbtn{
+        left: 60rem;
+    }
+
+    .Or{
+        left: 55rem;
+    }
+
+    .SignUp{
+        left:50.6rem;
+    }
+
+    .login{
+        left: 55.6rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .Search{
+        left:20rem;
+    }
+
+    .navbar .navbar-brand{
+        left:12.5rem;
+        top:-0.7rem;
+        font-size: 42px;
+    }
+    .searchb{
+        left:42rem;
+    }
+
+    .dropdown{
+        left:37rem;
+    }
+}
+
+@media  screen and (min-width: 1400px) {
+    .sellbtn{
+        left:76rem;
+    }
+
+    .Or{
+        left:71rem;
+        top:1.1rem;
+    }
+
+    .login{
+        left:71.6rem;
+    }
+
+    .SignUp{
+        left:66.6rem;
+    }
+
+    .Search{
+        width:40rem;
+    }
+
+    .searchb{
+        width:4rem;
+        left:56rem;
+    }
+
+    .dropdown{
+        left:50rem;
+    }
+}

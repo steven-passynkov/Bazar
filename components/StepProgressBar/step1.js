@@ -34,11 +34,11 @@ export default function step1({onUpdateValidator}) {
 
   return (
     <div>
-      <h1 className="step1">Enter Title</h1>
+      <h1 className="title">Enter Title</h1>
       <>
         {alert == false ? (
           <Form.Control
-            className="title"
+            className="step1"
             onChange={() => setValue(event.target.value)}
             required
             isValid
@@ -46,7 +46,7 @@ export default function step1({onUpdateValidator}) {
         ) : (
           <>
             <Form.Control
-              className="title"
+              className="step1"
               onChange={() => setValue(event.target.value)}
               required
               

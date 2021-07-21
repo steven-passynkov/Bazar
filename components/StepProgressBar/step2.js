@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 
 export default function step2({ onUpdateValidator }) {
@@ -37,11 +38,12 @@ export default function step2({ onUpdateValidator }) {
       <h1>Step 2</h1>
       <>
         {alert == false ? (
-          <Form.Control
+          <Button
             onChange={() => setValue(event.target.value)}
             required
             isValid
-          />
+          >
+            </Button>
         ) : (
           <>
             <Form.Control

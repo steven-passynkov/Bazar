@@ -1,18 +1,20 @@
 .title{
-    width:30rem;
-    height:3rem;
-    position: relative;
-    left: 43rem;
-    margin-bottom: 20rem;
+    position: absolute;
+    left:40rem;
+    top:16rem;
+
+
     
     
 }   
 
 
 .step1{
+    width:30rem;
+    height:3rem;
     position: relative;
-    margin-top: 5rem;
-    left:52rem;
-    margin-top: 10rem;
+    left: 28rem;
+    top:8rem;
+    margin-bottom: 20rem;
     
 }
