@@ -64,12 +64,12 @@ export default function Product_page() {
   }, [value]);
 
   useEffect(()=> {
-    if(id) {
+    if(product) {
       axiosInstance
         .get(finalApiRoute)
         .then((response) => {
           setLoadingData(false);
-          setName(response.data.data.name);
+          setName(response.data.data.myuser);
           setId(response.data.data.id);
           setPrice(response.data.data.price);
           setTitle(response.data.data.title);
@@ -81,7 +81,7 @@ export default function Product_page() {
           setLoadingData(false);
         });
     }
-  }, [id]);
+  }, [product]);
 
   return (
     <div>
