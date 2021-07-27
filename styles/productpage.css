@@ -3,13 +3,13 @@
     left: 79rem;
     color:#00008B;
     position:absolute; 
-    top: 44rem;
+    top: 37rem;
     
 }
 .text-center{
     position:relative;
     left: 12rem;
-    margin-top: 5rem;
+    margin-top: 3rem;
     width:61rem;
 }
 
@@ -23,7 +23,7 @@
     font-size: 2rem;
     position:absolute;
     left: 79rem;
-    top: 49rem;
+    top: 42rem;
 }
 
 .messagebtn{
@@ -32,16 +32,16 @@
     font-size: 2rem;
     position:absolute;
     left: 79rem;
-    top: 55rem;
+    top: 48.3rem;
 }
 
 .sellerinfo{
     height:13rem;
     position: absolute;
-    top: 18rem;
+    top: 12rem;
     left: 79rem;
     margin-top: 1rem;
-    
+    width:14rem;    
 
 }
 
@@ -50,7 +50,7 @@
     position:relative;
     left:12rem;
     top:2rem;
-    width:42rem;
+    width:61rem;
     margin-bottom: 20rem;
   
 }
@@ -60,31 +60,24 @@
     left:79rem;
     font-size: 3rem;
     position: absolute;
-    top: 14.5rem;
+    top: 8rem;
     color:#00008B;
 }
 
-.item_info{
-    position: absolute;
-    left: 55rem;
-    top: 41.85rem;
-    height: 20rem;
-    width:18rem; 
-}
+
 
 
 @media all and (max-width: 1500px){
 
     .description{
-        width:30rem;
+        width:49rem;
     }
 
-    .item_info{
-        left:43rem;
-    }
+
 
     .text-center{
         width:49rem;
+        margin-top:4rem;
     }
 
     .product_title{
@@ -113,13 +106,10 @@
 @media all and (max-width: 1300px){
 
     .description{
-        width:24rem;
+        width:37rem;
     }
 
-    .item_info{
-        left: 37rem;
-        width:12rem;
-    }
+
 
     .text-center{
         width:37rem;
@@ -147,7 +137,7 @@
     }
 }
 
-@media all and (max-width: 1050px){
+@media all and (max-width: 1150px){
 
     .text-center{
         left: 6rem;
@@ -157,9 +147,7 @@
         left:6rem;
     }
 
-    .item_info{
-        left:31rem;
-    }
+
 
     .product_title{
         left: 48rem;
@@ -181,4 +169,292 @@
 
         left:48rem;
     }
+}
+
+@media all and (max-width: 1000px){
+
+    .text-center{
+        left: 6rem;
+        width:30rem;
+    }
+
+    .description{
+        left:6rem;
+        width:30rem;
+    }
+
+
+
+    .product_title{
+        left: 40rem;
+    }
+
+    .sellerinfo{
+        left:40rem;
+    }
+
+    .messagebtn{
+        left:40rem;
+    }
+
+    .offerbtn{
+        left:40rem;
+    }
+
+    .Price{
+
+        left:40rem;
+    }
+}
+
+@media  screen and (max-width:900px) {
+    .text-center{
+        width:20rem;
+    }
+
+    .description{
+        width:20rem;
+    }
+
+    .product_title{
+        left:30rem;
+        top:8rem;
+    }
+
+    .sellerinfo{
+        left:30rem;
+        top:12rem;
+    }
+
+    .Price{
+        left:30rem;
+        top:33rem;
+    }
+
+    .offerbtn{
+        top:39rem;
+        left:30rem;
+    }
+
+    .messagebtn{
+        top:45rem;
+        left:30rem;
+    }
+}
+
+
+@media screen and (max-width:710px) {
+    
+    .text-center{
+        margin-top:6rem;
+        left:3rem;
+        width:36rem;
+    }
+
+    .description{
+        left:3rem;
+        width:36rem;
+    }
+
+    .product_title{
+        top:8rem;
+        left:3rem;
+    }
+
+    .sellerinfo{
+        top:60rem;
+        left:3rem;
+        width:16rem;
+    }
+
+    .messagebtn{
+        top:61rem; 
+        left:24rem; 
+    }
+
+    .offerbtn{
+        top:67rem;
+        left:24rem;
+    }
+
+    .Price{
+        top:8rem;
+        left:26rem;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .text-center{
+        width:30rem;
+        left:4rem;
+    }
+
+    .description{
+        width:30rem;
+        left:4rem;
+    }
+
+    .sellerinfo{
+        width:14rem;
+        left:4rem;
+    }
+
+    .messagebtn{
+        left:20rem;
+    }
+
+    .offerbtn{
+        left:20rem;
+    }
+
+    .product_title{
+        left:4rem;
+    }
+
+    .Price{
+        left:21.5rem;
+    }
+}
+
+@media screen and (max-width:565px) {
+    .product_title{
+        font-size: 3rem;
+        left:13rem;
+    }
+
+    .Price{
+        font-size: 3rem;
+        left:11rem;
+        top:76rem
+    }
+
+    .text-center{
+        width:24rem;
+        left:4rem;
+    }
+
+    .description{
+        width:24rem;
+        margin-bottom: 40rem;
+    }
+
+    .sellerinfo{
+        width:24rem;
+    }
+
+    .messagebtn{
+        top:82rem;
+        left:10rem;
+    }
+
+    .offerbtn{
+        top:88rem;
+        left: 10rem;
+    }
+}
+
+
+@media screen and (max-width:450px) {
+
+    .description{
+        width:20rem
+    }
+
+    .text-center{
+        width:20rem;
+    }
+
+    .product_title{
+        left:11rem;
+    }
+
+    .sellerinfo{
+        width:20rem;
+    }
+
+    .Price{
+        left:8rem;
+    }
+
+    .messagebtn{
+        left:7.5rem;
+    }
+
+    .offerbtn{
+        left:7.5rem;
+    }
+    
+}
+
+
+@media screen and (max-width:400px) {
+
+    .description{
+        width:20rem;
+        left:2rem;
+    }
+
+    .text-center{
+        width:20rem;
+        left:2rem;
+    }
+
+    .product_title{
+        left:9rem;
+    }
+
+    .sellerinfo{
+        width:20rem;
+        left:2rem;
+    }
+
+    .Price{
+        left:5rem;
+    }
+
+    .messagebtn{
+        left:5rem;
+    }
+
+    .offerbtn{
+        left:5rem;
+    }
+    
+}
+
+
+@media screen and (max-width:370px) {
+
+    .description{
+        width:15rem;
+        left:4rem;
+    }
+
+    .text-center{
+        width:15rem;
+        left:4rem;
+    }
+
+    .product_title{
+        left:8.5rem;
+    }
+
+    .sellerinfo{
+        width:15rem;
+        left:4rem;
+    }
+
+    .Price{
+        left:6rem;
+        font-size: 2.5rem;
+    }
+
+    .messagebtn{
+        left:5rem;
+    }
+
+    .offerbtn{
+        left:5rem;
+    }
+    
 }

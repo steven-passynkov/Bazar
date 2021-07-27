@@ -40,10 +40,10 @@ export default function Nav_bar() {
     return (
       <div>
         <Desktop>
-          <Card style={{ background: "#00008b" }} />
+          <Card className="abovenavbar" style={{ background: "#00008b" }} />
           <div>
-            <Navbar expand="lg" className="justify-content-between">
-              <Nav className="mr-auto">
+            <Navbar expand="lg">
+              <Nav fluid>
                 <Navbar.Brand href="/.." variant="light">
                   Bozar
                 </Navbar.Brand>
@@ -98,10 +98,10 @@ export default function Nav_bar() {
         </Desktop>
         
         <Tablet>
-          <Card style={{ background: "#00008b" }} />
+          <Card className="abovenavbar" style={{ background: "#00008b" }} />
           <div>
-            <Navbar expand="lg" className="justify-content-between">
-              <Nav className="mr-auto">
+            <Navbar expand="lg" >
+              <Nav fluid >
                 <Navbar.Brand href="/.." variant="light">
                   Bozar
                 </Navbar.Brand>
@@ -156,10 +156,10 @@ export default function Nav_bar() {
           </Tablet>
 
         <Mobile>
-          <Card style={{ background: "#00008b" }} />
+          <Card className="abovenavbar" style={{ background: "#00008b" }} />
           <div>
-            <Navbar expand="lg" className="justify-content-between">
-              <Nav className="mr-auto">
+            <Navbar expand="lg" >
+              <Nav fluid >
                 <Navbar.Brand href="/.." variant="light">
                   Bozar
                 </Navbar.Brand>
@@ -213,10 +213,10 @@ export default function Nav_bar() {
     return (
       <div>
         <Desktop>
-          <Card style={{ background: "#00008b" }} />
+          <Card className="abovenavbar" style={{ background: "#00008b" }} />
           <div>
-            <Navbar expand="lg" className="justify-content-between">
-              <Nav className="mr-auto">
+            <Navbar expand="lg">
+              <Nav  fluid>
                 <Navbar.Brand href="/.." variant="light">
                   Bozar
                 </Navbar.Brand>
@@ -272,10 +272,10 @@ export default function Nav_bar() {
         </Desktop>
 
         <Tablet>
-          <Card style={{ background: "#00008b" }} />
+          <Card  className="abovenavbar" style={{ background: "#00008b" }} />
           <div>
-            <Navbar expand="lg" className="justify-content-between">
-              <Nav className="mr-auto">
+            <Navbar expand="lg">
+              <Nav fluid >
                 <Navbar.Brand href="/.." variant="light">
                   Bozar
                 </Navbar.Brand>
@@ -332,10 +332,10 @@ export default function Nav_bar() {
           </Tablet>
 
         <Mobile>
-          <Card style={{ background: "#00008b" }} />
+          <Card className="abovenavbar"style={{ background: "#00008b" }} />
           <div>
-            <Navbar expand="lg" className="justify-content-between">
-              <Nav className="mr-auto">
+            <Navbar expand="lg" >
+              <Nav fluid >
                 <Navbar.Brand href="/.." variant="light">
                   Bozar
                 </Navbar.Brand>

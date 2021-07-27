@@ -47,7 +47,7 @@ export default function Carousel_PayedPost({
         customTransition="ease-in-out"
         transitionDuration={500}
         containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile"]}
+        
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
       >

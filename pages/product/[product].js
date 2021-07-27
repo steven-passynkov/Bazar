@@ -88,16 +88,7 @@ export default function Product_page() {
       {loading == false ? (
         <div>
           <Nav_bar />
-          <Container fluid>
-            <div className={Product_CSS.Breadcrumb}>
-              <Breadcrumb>
-                <Breadcrumb.Item href="../../">Home</Breadcrumb.Item>
-                <Breadcrumb.Item href="#">Region: {}</Breadcrumb.Item>
-                <Breadcrumb.Item href="#">Category: {}</Breadcrumb.Item>
-                <Breadcrumb.Item active>Id: {id}</Breadcrumb.Item>
-              </Breadcrumb>
-            </div>
-          </Container>
+
 
           <Card className="text-center" >
             <Card.Body>
@@ -203,7 +194,7 @@ export default function Product_page() {
 
           <h5 className="product_title"> {title}</h5>
 
-          <Card className="sellerinfo" style={{ width: "18rem" }}>
+          <Card className="sellerinfo" >
             Seller Name:{" "}
             <Link href="#">
               <a>{name}</a>
@@ -221,10 +212,7 @@ export default function Product_page() {
             <Card.Body>{description}</Card.Body>
           </Card>
 
-          <Card className="item_info" >
-            <Card.Body>{info}</Card.Body>
-          </Card>
-
+  
           <div>
             <Toast
               onClose={() => setShowToast(false)}
