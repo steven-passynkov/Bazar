@@ -83,7 +83,7 @@
 .card {
   margin: 1rem;
   padding: 1.5rem;
-  text-align: right;
+  text-align: center;
   color: inherit;
   text-decoration: none;
   border: 1px solid #eaeaea;
@@ -121,3 +121,5 @@
     flex-direction: column;
   }
 }
+
+

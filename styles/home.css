@@ -1,0 +1,22 @@
+.hometag{
+    margin:3rem; 
+    position:relative;   
+}
+
+.Carousel{
+    margin:4rem;
+    position:relative;
+}
+
+@media  (max-width:420px) {
+    .hometag{
+
+        left:5rem;
+    }
+
+    .Carousel{
+    left:4rem;    
+    }
+}
+
+

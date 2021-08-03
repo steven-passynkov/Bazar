@@ -5,7 +5,7 @@ import "../styles/productpage.css";
 import "../styles/spinner.css";
 import { UserProvider } from "@auth0/nextjs-auth0";
 import "../styles/step1.css";
-
+import "../styles/home.css"
 function MyApp({ Component, pageProps }) {
   return (
     <UserProvider>

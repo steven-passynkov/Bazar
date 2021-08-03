@@ -34,15 +34,15 @@ export default function Home_Page() {
     <div>
       <Nav_bar />
       <div className={Home_css.box}>
-        <div style={{ margin: "3rem" }}>
-          <Jumbotron>
+        <div className="hometag">
+          <Jumbotron >
             <h1>Sell Now! {data ? JSON.stringify(data) : "Loading..."}</h1>
             <p>
               <Button variant="primary">Sell</Button>
             </p>
           </Jumbotron>
         </div>
-        <Card className="Carousel" style={{ margin: "4rem" }}>
+        <Card className="Carousel">
           <Card.Header style={{ color: "#00008b" }}>
             <strong>Trending</strong>
           </Card.Header>
@@ -55,7 +55,7 @@ export default function Home_Page() {
             />
           </Card.Body>
         </Card>
-        <Card className="Carousel" style={{ margin: "4rem" }}>
+        <Card className="Carousel" >
           <Card.Header style={{ color: "#00008b" }}>
             <strong>Auto</strong>
           </Card.Header>

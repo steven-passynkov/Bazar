@@ -387,37 +387,37 @@
 }
 
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:420px) {
 
     .description{
         width:20rem;
-        left:2rem;
+        left:5.5rem;
     }
 
     .text-center{
         width:20rem;
-        left:2rem;
+        left:5.5rem;
     }
 
     .product_title{
-        left:9rem;
+        left:12.5rem;
     }
 
     .sellerinfo{
         width:20rem;
-        left:2rem;
+        left:5.5rem;
     }
 
     .Price{
-        left:5rem;
+        left:8.5rem;
     }
 
     .messagebtn{
-        left:5rem;
+        left:8.5rem;
     }
 
     .offerbtn{
-        left:5rem;
+        left:8.5rem;
     }
     
 }
@@ -426,35 +426,35 @@
 @media screen and (max-width:370px) {
 
     .description{
-        width:15rem;
-        left:4rem;
+        width:20rem;
+        left:6rem;
     }
 
     .text-center{
-        width:15rem;
-        left:4rem;
+        width:20rem;
+        left:6rem;
     }
 
     .product_title{
-        left:8.5rem;
+        left:12rem;
     }
 
     .sellerinfo{
-        width:15rem;
-        left:4rem;
+        width:20rem;
+        left:6rem;
     }
 
     .Price{
-        left:6rem;
+        left:11rem;
         font-size: 2.5rem;
     }
 
     .messagebtn{
-        left:5rem;
+        left:9rem;
     }
 
     .offerbtn{
-        left:5rem;
+        left:9rem;
     }
     
 }
