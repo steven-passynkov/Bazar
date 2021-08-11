@@ -9,7 +9,10 @@ import { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
 import { useUser } from "@auth0/nextjs-auth0";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch, AiOutlineArrowDown,  } from "react-icons/ai";
+import {VscAccount} from "react-icons/vsc"
+import React from "react"
+import Dropdown from "react-bootstrap/Dropdown"
 
 
 export default function Nav_bar() {
@@ -35,6 +38,53 @@ export default function Nav_bar() {
     const isMobile = useMediaQuery({ maxWidth: 767 });
     return isMobile ? children : null;
   };
+
+  const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+    <a
+      href=""
+      ref={ref}
+      onClick={e => {
+        e.preventDefault();
+        onClick(e);
+      }}
+
+      onHover={e => {
+        e.preventDefault();
+        onHover(e);
+      }}  
+    >
+      {/* Render custom icon here */}
+      <AiOutlineArrowDown className="Downarrow" />
+    </a>
+
+  
+
+
+  ));
+
+  const CustomToggle2 = React.forwardRef(({ children, onClick,  }, ref) => (
+    <a
+      href=""
+      ref={ref}
+      onClick={e => {
+        e.preventDefault();
+        onClick(e);
+      }}
+
+    
+    >
+      {/* Render custom icon here */}
+      <VscAccount className="Account" />
+    </a>
+
+  
+
+
+  ));
+
+ 
+
+
 
   if (user) {
     return (
@@ -90,7 +140,40 @@ export default function Nav_bar() {
                       Sell
                       <img src="" />
                     </Button>
-                    <Button variant="link" href="api/auth/logout">Logout</Button>
+
+    <Dropdown className="customdropdown">
+    <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" >
+    </Dropdown.Toggle>
+    <Dropdown.Menu className="DropdownMenu1">
+      <Dropdown.Item >Profile</Dropdown.Item>
+      <Dropdown.Divider />
+      <Dropdown.Item >Blue</Dropdown.Item>
+      <Dropdown.Item >
+        Orange
+      </Dropdown.Item>
+      <Dropdown.Divider />
+      <Dropdown.Item className="logout"  href="api/auth/logout" >Logout</Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>,
+
+
+  <Dropdown className="customdropdown2">
+    <Dropdown.Toggle as={CustomToggle2} id="dropdown-custom-components" >
+    </Dropdown.Toggle>
+    <Dropdown.Menu className="DropdownMenu">
+      <Dropdown.Item >Profile </Dropdown.Item>
+      <Dropdown.Divider />
+      <Dropdown.Item >Blue</Dropdown.Item>
+      <Dropdown.Item >
+        Orange
+      </Dropdown.Item>
+
+      <Dropdown.Divider />
+      <Dropdown.Item className="logout" href="api/auth/logout" >Logout </Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>,
+
+
                 </div>
               </Nav>
             </Navbar>

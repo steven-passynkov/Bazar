@@ -1,3 +1,57 @@
+
+.Downarrow{
+    height: 48px;
+    width:15px;
+    color:#FFE069;
+}
+
+.Downarrow:hover{
+opacity: 0.7;
+}
+
+.Account:hover{
+    opacity:0.7;
+}
+
+.Account{
+    height:50px;
+    width:30px;
+    color: #FFE069;
+}
+
+.logout{
+    color:lightcoral;
+}
+
+
+.logout:hover {
+    color:lightcoral;
+    background-color: transparent;
+    opacity: 0.7;
+}
+
+.DropdownMenu{
+    position: absolute;
+    left:-rem;
+}
+
+.DropdownMenu1{
+    position: absolute;
+    left:-5rem;
+}
+
+
+
+
+.dropdowns{
+    position: absolute;
+    left:35px;
+    background-color: blue;
+}
+
+
+
+
 .navbar {
     background-color: #00008b;
     margin-top:0.5%;
@@ -418,6 +472,8 @@
     .dropdown{
         left:37rem;
     }
+
+
 }
 
 @media  screen and (min-width: 1400px) {
@@ -449,5 +505,32 @@
 
     .dropdown{
         left:50rem;
+    }
+
+
+
+
+    .arrow{
+        left:5rem;
+        color:white;
+    }
+
+    .customdropdown{
+        position: absolute;
+        left:73rem;
+        background-color: #00008B;
+        width:2rem;
+    }
+
+    .customdropdown2{
+        position: absolute;
+        left:70.8rem;
+        width:2rem;
+        background-color: #00008B;
+    }
+
+    .Account{
+        position: absolute;
+        top:-0.2rem;
     }
 }
