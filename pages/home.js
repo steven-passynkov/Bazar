@@ -6,18 +6,31 @@ import Card from "react-bootstrap/Card";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
 import Home_css from "../styles/Home.module.css";
+import Image from "next/image";
+import tradingimg from "../public/trading.jpeg";
+import Nav from "react-bootstrap/Nav";
+import { useState } from "react";
+
 export default function Home_Page() {
+  const [tabcontent, setTabContent] = useState(1);
+
+  const handleSelect = (eventKey) => setTabContent(eventKey);
+
   return (
     <div>
       <Nav_bar />
       <div className={Home_css.box}>
-        <div style={{ margin: "3rem" }}>
-          <Jumbotron>
-            <h1>Sell Now!</h1>
-            <p>
-              <Button variant="primary">Sell</Button>
-            </p>
-          </Jumbotron>
+        <div>
+          <Image src={tradingimg} width={1200} height={500} />
+            <Nav variant="pills" onSelect={handleSelect} defaultActiveKey="1">
+              <Nav.Item>
+                <Nav.Link eventKey="1">Buy</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="2">Sell</Nav.Link>
+              </Nav.Item>
+            </Nav>
+            {tabcontent == 1 ? <div>To buy</div> : <div>To sell</div>}
         </div>
         <Card className="text-center" style={{ margin: "3rem" }}>
           <Card.Header style={{ color: "#00008b" }}>

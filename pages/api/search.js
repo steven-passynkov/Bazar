@@ -1,7 +1,11 @@
-import data from "../../api.json"
+import { getProductById } from "./queries";
 
 export default (req, res) => {
-  let dataInternal = data;
+  if (req.method === "GIT") {
+    getProductById(req.query.id, res);
+  }
+  
+  let dataInternal = res;
 
   // Calculate start, Aka skip if you use it in db queries
   const start =
@@ -14,9 +18,7 @@ export default (req, res) => {
   // Use your DB query here
   if (req.query.searchTerm) {
     dataInternal = data.filter((data) => {
-      return (
-        data.name.match(new RegExp(req.query.searchTerm, "i"))
-      );
+      return data.name.match(new RegExp(req.query.searchTerm, "i"));
     });
   }
 

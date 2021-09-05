@@ -12,9 +12,9 @@ export default function Footer() {
   return (
     <Card>
       <Box>
-        <h1 style={{ color: "white", textAlign: "center", marginTop: "-50px" }}>
+        <h3 style={{ color: "white", textAlign: "left", marginTop: "-50px", marginLeft:"30px", marginBottom:"60px"}}>
           Bazar
-        </h1>
+        </h3>
         <Container>
           <Row>
             <Column>

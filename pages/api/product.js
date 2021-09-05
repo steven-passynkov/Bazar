@@ -1,4 +1,3 @@
-import data from "../../api.json";
 import { getProducts } from "./queries";
 import { updateProduct } from "./queries";
 import { createProduct } from "./queries";

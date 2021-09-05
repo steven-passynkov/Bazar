@@ -6,12 +6,14 @@ import "react-step-progress/dist/index.css";
 import Step1 from "../../components/StepProgressBar/step1";
 import Step2 from "../../components/StepProgressBar/step2";
 import Step3 from "../../components/StepProgressBar/step3";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
+import axios from "axios";
 
 export default function new_ad() {
   const curIsValid1 = useRef(false);
   const curIsValid2 = useRef(false);
   const curIsValid3 = useRef(false);
+  const [loading, setLoadingData] = useState(false);
 
   const step1Content = (
     <Step1
@@ -35,9 +37,30 @@ export default function new_ad() {
     />
   );
 
-  function onFormSubmit() {}
+  function onFormSubmit() {
+    useEffect(() => {
+      setLoadingData(true);
+      axios
+        .post(
+          //what do i put here
+        )
+        .then((response) => {
+          setLoadingData(false);
+          <Link href="/home"/>
+          
+        })
+        .catch((error) => {
+          console.error(error);
+          setLoadingData(false);
+        });
+    }, [
+      //what do i put here
+    ]);
+  }
 
   return (
+    <div>
+    {loading == false ? (
     <div>
       <Head>
         <title>Bazar</title>
@@ -71,5 +94,11 @@ export default function new_ad() {
 
       <Footer />
     </div>
+    ) : (
+      <div className="text-center">
+        <Spinner />
+      </div>
+    )}
+  </div>
   );
 }

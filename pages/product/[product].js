@@ -15,7 +15,6 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Head from "next/head";
-import Toast from "react-bootstrap/Toast";
 import FsLightbox from "fslightbox-react";
 import Spinner from "../../components/spinner";
 
@@ -37,7 +36,6 @@ export default function Product_page() {
   const [description, setDescription] = useState();
 
   const [showModel, setShowModel] = useState(false);
-  const [showToast, setShowToast] = useState(false);
   const handleClose = () => setShowModel(false);
   const handleShow = () => setShowModel(true);
 
@@ -47,7 +45,6 @@ export default function Product_page() {
 
   const onConfirm = () => {
     setShowModel(false);
-    setShowToast(true);
   };
 
   let finalApiRoute = `${`/api/product`}?id=${product}`;
@@ -86,7 +83,7 @@ export default function Product_page() {
   return (
     <div>
       <Head>
-        <title>Bazar</title>
+        <title>{title} sold on Bazar</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       {loading == false ? (
@@ -227,28 +224,6 @@ export default function Product_page() {
           <Card className="item_info" >
             <Card.Body>{info}</Card.Body>
           </Card>
-
-          <div>
-            <Toast
-              onClose={() => setShowToast(false)}
-              show={showToast}
-              delay={10000}
-              autohide
-            >
-              <Toast.Header>
-                <img
-                  src="holder.js/20x20?text=%20"
-                  className="rounded mr-2"
-                  alt=""
-                />
-                <strong className="mr-auto">Bootstrap</strong>
-              </Toast.Header>
-              <Toast.Body>
-                Woohoo, you're reading this text in a Toast!
-              </Toast.Body>
-            </Toast>
-          </div>
-
           <Footer />
         </div>
       ) : (

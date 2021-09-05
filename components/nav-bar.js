@@ -8,12 +8,10 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
-import { useUser } from "@auth0/nextjs-auth0";
 
-export default function Nav_bar() {
+export default function Nav_bar({user}) {
   const titleRef = useRef(0);
   const router = useRouter();
-  const { user } = useUser();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -85,7 +83,7 @@ export default function Nav_bar() {
                       Sell
                       <img src="" />
                     </Button>
-                    <Button href="api/auth/logout">Logout</Button>
+                    <Button href="/signin">Logout</Button>
                   </InputGroup>
                 </div>
               </Nav>
@@ -105,7 +103,7 @@ export default function Nav_bar() {
                     Sell
                     <img src="" />
                   </Button>
-                  <Button href="api/auth/logout">Logout</Button>
+                  <Button href="/signin">Logout</Button>
                 </div>
                 <div>
                   <InputGroup className="searchbar">
@@ -113,9 +111,14 @@ export default function Nav_bar() {
                       placeholder="What do you want"
                       aria-label="What do you want"
                       aria-describedby="basic-addon2"
+                      onSubmit={handleSubmit}
                     />
                     <InputGroup.Append>
-                      <Button variant="light" className="searchb">
+                      <Button
+                        variant="light"
+                        className="searchb"
+                        onClick={handleSubmit}
+                      >
                         Search
                       </Button>
                     </InputGroup.Append>
@@ -194,7 +197,7 @@ export default function Nav_bar() {
                       Sell
                       <img src="" />
                     </Button>
-                    <Button href="api/auth/login">Login</Button>
+                    <Button href="/signin">Login</Button>
                   </InputGroup>
                 </div>
               </Nav>
@@ -214,17 +217,22 @@ export default function Nav_bar() {
                     Sell
                     <img src="" />
                   </Button>
-                  <Button href="api/auth/login">Login</Button>
+                  <Button href="/signin">Login</Button>
                 </div>
                 <div>
-                  <InputGroup className="searchbar">
+                <InputGroup className="searchbar">
                     <FormControl
                       placeholder="What do you want"
                       aria-label="What do you want"
                       aria-describedby="basic-addon2"
+                      onSubmit={handleSubmit}
                     />
                     <InputGroup.Append>
-                      <Button variant="light" className="searchb">
+                      <Button
+                        variant="light"
+                        className="searchb"
+                        onClick={handleSubmit}
+                      >
                         Search
                       </Button>
                     </InputGroup.Append>

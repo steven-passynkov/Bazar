@@ -10,7 +10,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Pagination } from "../../components/pagination/pagination";
-import Loadingscreen from "../../components/layout/loadingscreen";
+import Spinner from "../../components/spinner";
 
 export default function search_page() {
   const router = useRouter();
