@@ -22,19 +22,36 @@ export default function Home_Page() {
       <div className={Home_css.box}>
         <div>
           <Image src={tradingimg} width={1200} height={600} />
-          <div style={{marginTop:"-30rem", marginLeft:"10rem", position:"absolute", background:"white", width:"20rem", height:"20rem"}}>
+          <div
+            style={{
+              marginTop: "-30rem",
+              marginLeft: "10rem",
+              position: "absolute",
+              background: "white",
+              width: "20rem",
+              height: "20rem",
+            }}
+          >
             <Card>
-            <Nav fill variant="tabs" onSelect={handleSelect} defaultActiveKey="1" style={{margin:"0.5rem"}}>
-              <Nav.Item>
-                <Nav.Link eventKey="1">Buy</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="2">Sell</Nav.Link>
-              </Nav.Item>
-            </Nav>
+              <Card>
+                <Nav
+                  fill
+                  variant="tabs"
+                  onSelect={handleSelect}
+                  defaultActiveKey="1"
+                  style={{ margin: "0.5rem" }}
+                >
+                  <Nav.Item>
+                    <Nav.Link eventKey="1">Buy</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="2">Sell</Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              </Card>
+              {tabcontent == 1 ? <div>To buy</div> : <div>To sell</div>}
             </Card>
-            {tabcontent == 1 ? <div>To buy</div> : <div>To sell</div>}
-            </div>
+          </div>
         </div>
         <Card className="text-center" style={{ margin: "3rem" }}>
           <Card.Header style={{ color: "#00008b" }}>
