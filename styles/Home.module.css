@@ -119,6 +119,10 @@
   margin-right: 8rem;
 }
 
+.tab{
+  background-color: #FFE069;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

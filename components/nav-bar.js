@@ -83,7 +83,7 @@ export default function Nav_bar({user}) {
                       Sell
                       <img src="" />
                     </Button>
-                    <Button href="/signin">Logout</Button>
+                    <Button href="/api/logout">Logout</Button>
                   </InputGroup>
                 </div>
               </Nav>
@@ -103,7 +103,7 @@ export default function Nav_bar({user}) {
                     Sell
                     <img src="" />
                   </Button>
-                  <Button href="/signin">Logout</Button>
+                  <Button href="/api/logout">Logout</Button>
                 </div>
                 <div>
                   <InputGroup className="searchbar">

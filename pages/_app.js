@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/navbar.css";
 import "../styles/productpage.css";
 import "../styles/spinner.css";
+import "../styles/login.css";
 import useSupabase from "../utils/supabaseClient";
 import users from "../components/users";
 
