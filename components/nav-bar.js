@@ -152,7 +152,7 @@ export default function Nav_bar() {
         Orange
       </Dropdown.Item>
       <Dropdown.Divider />
-      <Dropdown.Item className="logout"  href="api/auth/logout" >Logout</Dropdown.Item>
+      <Dropdown.Item className="logout"  href="/api/auth/logout" >Logout</Dropdown.Item>
     </Dropdown.Menu>
   </Dropdown>,
 
@@ -169,7 +169,7 @@ export default function Nav_bar() {
       </Dropdown.Item>
 
       <Dropdown.Divider />
-      <Dropdown.Item className="logout" href="api/auth/logout" >Logout </Dropdown.Item>
+      <Dropdown.Item className="logout" href="/api/auth/logout" >Logout </Dropdown.Item>
     </Dropdown.Menu>
   </Dropdown>,
 
@@ -231,7 +231,7 @@ export default function Nav_bar() {
                       Sell
                       <img src="" />
                     </Button>
-                    <Button variant="link" href="api/auth/logout">Logout</Button>
+                    <Button variant="link" href="/api/auth/logout">Logout</Button>
                 </div>
               </Nav>
             </Navbar>
@@ -343,9 +343,9 @@ export default function Nav_bar() {
                       Sell
                       <img src="" />
                     </Button>
-                    <Button variant="link" href="api/auth/login" className="login">Login</Button>
+                    <Button variant="link" href="/api/auth/login" className="login">Login</Button>
                     <p className="Or">or</p>
-                    <Button variant="link" href="api/auth/login" className="SignUp">Sign Up</Button>
+                    <Button variant="link" href="/api/auth/login" className="SignUp">Sign Up</Button>
 
                   
                 </div>
@@ -405,9 +405,9 @@ export default function Nav_bar() {
                       Sell
                       <img src="" />
                     </Button>
-                    <Button variant="link" href="api/auth/login" className="login">Login</Button>
+                    <Button variant="link" href="/api/auth/login" className="login">Login</Button>
                     <p className="Or">or</p>
-                    <Button variant="link" href="api/auth/login" className="SignUp">Sign Up</Button>
+                    <Button variant="link" href="/api/auth/login" className="SignUp">Sign Up</Button>
                 </div>
               </Nav>
             </Navbar>
@@ -463,9 +463,9 @@ export default function Nav_bar() {
                       </NavDropdown.Item>
                     </NavDropdown>
 
-                    <Button variant="link" href="api/auth/login" className="login">Login</Button>
+                    <Button variant="link" href="/api/auth/login" className="login">Login</Button>
                     <p className="Or">or</p>
-                    <Button variant="link" href="api/auth/login" className="SignUp">Sign Up</Button>
+                    <Button variant="link" href="/api/auth/login" className="SignUp">Sign Up</Button>
 
                 </div>
               </Nav>
