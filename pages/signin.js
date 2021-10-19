@@ -27,23 +27,24 @@ export default function login({ supabase }) {
 
   const authTable = async () => {
     await auth();
-    //let { data: users, error } = await supabase
-    //.from('users')
-    //.select('id')
-    const username = await supabase.from("user").select("username").eq('username', 'passynkovsteven');
-    console.log("username", username);
-    const password = await supabase.from("user").select("password").eq('password', 's47389bj');
-    console.log("password", password)
+    const username = await supabase
+      .from("user")
+      .select("username")
+      .eq("username", userIdentification);
+    const password = await supabase
+      .from("user")
+      .select("password")
+      .eq("password", password);
+    if (username === userIdentification || password === password) {
+      console.log("works");
+      user.setLoggedIn(true)
+    } else {
+      console.log("error");
+    }
   };
 
-  if (username === userIdentification() || password === setPassword()){
-    console.log("works")
-  } else{
-    console.log("error")
-  }
-
   return (
-    <div className="backround">
+    <div>
       <InputGroup>
         <FormControl
           onChange={() => setUserIdentification(event.target.value)}
