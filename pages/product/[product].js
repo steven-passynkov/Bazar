@@ -18,7 +18,7 @@ import Head from "next/head";
 import FsLightbox from "fslightbox-react";
 import Spinner from "../../components/spinner";
 
-export default function Product_page() {
+export default function Product_page({ supabase }) {
   const router = useRouter();
   const { product } = router.query;
 
@@ -46,6 +46,13 @@ export default function Product_page() {
   const onConfirm = () => {
     setShowModel(false);
   };
+
+  const data = async () => {
+    const idpruduct = await supabase
+    .from('pruduct')
+    .select('id')
+  console.log(idpruduct)
+  }
 
   let finalApiRoute = `${`/api/product`}?id=${product}`;
 
@@ -99,6 +106,12 @@ export default function Product_page() {
               </Breadcrumb>
             </div>
           </Container>
+
+
+
+          <Button onClick={data}>Click fot the data</Button>
+
+
 
           <Card className="text-center" >
             <Card.Body>
