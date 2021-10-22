@@ -10,20 +10,19 @@ export default function signup({ supabase }) {
       password: "xvcDzdbERBlGFhdTZTQs",
     });
   };
-  const [username, setUsername] = useState()
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
-  const addinfo = async ({ data, error }) => await supabase
-  .from('user')
-  .insert([
-    { username:username, email:email, password:password},
-  ])
+  const addinfo = async ({ data, error }) =>
+    await supabase
+      .from("user")
+      .insert([{ username: username, email: email, password: password }]);
 
   return (
     <div>
       <InputGroup>
-      <FormControl
+        <FormControl
           onChange={() => setUsername(event.target.value)}
           placeholder="Username"
           aria-label="Username"

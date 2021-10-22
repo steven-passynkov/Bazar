@@ -50,7 +50,7 @@ export default function Product_page({ supabase }) {
   const data = async () => {
     const idpruduct = await supabase
     .from('pruduct')
-    .select('id')
+    .select('*')
   console.log(idpruduct)
   }
 
@@ -72,6 +72,7 @@ export default function Product_page({ supabase }) {
       axiosInstance
         .get(finalApiRoute)
         .then((response) => {
+          data()
           setLoadingData(false);
           setName(response.data.data.myuser);
           setId(response.data.data.id);
@@ -106,12 +107,6 @@ export default function Product_page({ supabase }) {
               </Breadcrumb>
             </div>
           </Container>
-
-
-
-          <Button onClick={data}>Click fot the data</Button>
-
-
 
           <Card className="text-center" >
             <Card.Body>
@@ -239,7 +234,7 @@ export default function Product_page({ supabase }) {
           </Card>
           <Footer />
         </div>
-      ) : (
+      ) : ( 
         <div className="text-center">
           <Spinner />
         </div>
