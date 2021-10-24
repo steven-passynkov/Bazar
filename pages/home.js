@@ -6,7 +6,6 @@ import Card from "react-bootstrap/Card";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
 import Home_css from "../styles/Home.module.css";
-import { useState } from "react";
 
 export default function Home_Page() {
 

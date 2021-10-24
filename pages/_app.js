@@ -4,6 +4,7 @@ import "../styles/navbar.css";
 import "../styles/productpage.css";
 import "../styles/spinner.css";
 import "../styles/login.css";
+import "../styles/home.css"
 import useSupabase from "../utils/supabaseClient";
 import { UserProvider } from '../components/UserContext';
 

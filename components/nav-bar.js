@@ -5,7 +5,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import FormControl from "react-bootstrap/FormControl";
 import Card from "react-bootstrap/Card";
 import InputGroup from "react-bootstrap/InputGroup";
-import { useRef, useState, useEffect } from "react";
+import { useRef} from "react";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
 
