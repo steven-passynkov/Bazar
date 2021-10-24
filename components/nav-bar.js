@@ -10,13 +10,14 @@ import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
 
 export default function Nav_bar({user}) {
-  const titleRef = useRef(0);
+  const titleRef = useRef(null);
   const router = useRouter();
 
   const handleSubmit = (event) => {
+    const value = titleRef.current.value;
     event.preventDefault();
     event.stopPropagation();
-    router.push(`/search/${titleRef.current}`);
+    router.push(`/search/${value}`);
   };
 
   const Desktop = ({ children }) => {
@@ -50,6 +51,7 @@ export default function Nav_bar({user}) {
                       aria-label="What do you want"
                       aria-describedby="basic-addon2"
                       onSubmit={handleSubmit}
+                      ref={titleRef}
                     />
                     <InputGroup.Append>
                       <Button
@@ -112,6 +114,7 @@ export default function Nav_bar({user}) {
                       aria-label="What do you want"
                       aria-describedby="basic-addon2"
                       onSubmit={handleSubmit}
+                      ref={titleRef}
                     />
                     <InputGroup.Append>
                       <Button
@@ -164,6 +167,7 @@ export default function Nav_bar({user}) {
                       aria-label="What do you want"
                       aria-describedby="basic-addon2"
                       onSubmit={handleSubmit}
+                      ref={titleRef}
                     />
                     <InputGroup.Append>
                       <Button
@@ -226,6 +230,7 @@ export default function Nav_bar({user}) {
                       aria-label="What do you want"
                       aria-describedby="basic-addon2"
                       onSubmit={handleSubmit}
+                      ref={titleRef}
                     />
                     <InputGroup.Append>
                       <Button
