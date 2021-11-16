@@ -11,8 +11,8 @@ export default function signup({ supabase }) {
     });
   };
   const [username, setUsername] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const addinfo = async ({ data, error }) =>
     await supabase
@@ -23,19 +23,19 @@ export default function signup({ supabase }) {
     <div>
       <InputGroup>
         <FormControl
-          onChange={() => setUsername(event.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
           placeholder="Username"
           aria-label="Username"
           aria-describedby="basic-addon1"
         />
         <FormControl
-          onChange={() => setEmail(event.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
           aria-label="Email"
           aria-describedby="basic-addon1"
         />
         <FormControl
-          onChange={() => setPassword(event.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           aria-label="Password"
           aria-describedby="basic-addon1"

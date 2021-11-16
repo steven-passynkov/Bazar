@@ -1,16 +1,14 @@
 import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/navbar.css";
-import "../styles/productpage.css";
-import "../styles/spinner.css";
-import "../styles/login.css";
-import "../styles/home.css"
+
 import useSupabase from "../utils/supabaseClient";
 import { UserProvider } from '../components/UserContext';
+import Layout from '../components/Layout'
 
 function MyApp({ Component, pageProps }) {
   const { session, supabase } = useSupabase();
   return (
+    <Layout>
     <UserProvider>
     <Component
       session={session}
@@ -18,6 +16,7 @@ function MyApp({ Component, pageProps }) {
       {...pageProps}
     />
     </UserProvider>
+    </Layout>
   );
 }
 export default MyApp;

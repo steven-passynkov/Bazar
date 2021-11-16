@@ -3,7 +3,7 @@ import React, { useEffect, createContext, useState } from "react";
 export const UserContext = createContext();
 
 export const UserProvider = ({ children, session, supabase }) => {
-  const [loggedIn, setLoggedIn] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
   useEffect(() => {
     setLoggedIn(!!session);
   }, [session]);

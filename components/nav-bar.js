@@ -5,13 +5,23 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import FormControl from "react-bootstrap/FormControl";
 import Card from "react-bootstrap/Card";
 import InputGroup from "react-bootstrap/InputGroup";
-import { useRef} from "react";
+import { useRef, useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
+import { AiOutlineSearch, AiOutlineArrowDown } from "react-icons/ai";
+import { VscAccount } from "react-icons/vsc";
+import Dropdown from "react-bootstrap/Dropdown";
+import { UserContext } from "./UserContext";
+import styles from "../styles/navbar.module.css";
+import React from "react";
+import Image from "next/image";
+import Bazar_image from "../public/Bazar_all_white.png";
 
-export default function Nav_bar({user}) {
+export default function Nav_bar() {
   const titleRef = useRef(null);
   const router = useRouter();
+
+  const user = useContext(UserContext);
 
   const handleSubmit = (event) => {
     const value = titleRef.current.value;
@@ -33,115 +43,223 @@ export default function Nav_bar({user}) {
     return isMobile ? children : null;
   };
 
-  if (user) {
+  const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+    <a
+      href=""
+      ref={ref}
+      onClick={(e) => {
+        e.preventDefault();
+        onClick(e);
+      }}
+      onHover={(e) => {
+        e.preventDefault();
+        onHover(e);
+      }}
+    >
+      <AiOutlineArrowDown className={styles.Downarrow} />
+    </a>
+  ));
+
+  const CustomToggle2 = React.forwardRef(({ children, onClick }, ref) => (
+    <a
+      href=""
+      ref={ref}
+      onClick={(e) => {
+        e.preventDefault();
+        onClick(e);
+      }}
+    >
+      <VscAccount className={styles.Account} />
+    </a>
+  ));
+
+  if (false) {
     return (
       <div>
         <Desktop>
-          <Card style={{ background: "#00008b" }} />
-          <div>
-            <Navbar expand="lg" className="justify-content-between">
-              <Nav className="mr-auto">
+          <Card
+            className={styles.abovenavbar}
+            style={{ background: "#00008b" }}
+          />
+          <div
+            style={{ background: "#00008b" }}
+            classname={styles.navbar_brand}
+          >
+            <Navbar expand="lg">
+              <Nav fluid>
                 <Navbar.Brand href="/.." variant="light">
-                  Bozar
+                  <Image src={Bazar_image} alt="Bazar" width={50} height={50} />
                 </Navbar.Brand>
                 <div>
-                  <InputGroup className="searchbar">
-                    <FormControl
-                      placeholder="What do you want"
-                      aria-label="What do you want"
-                      aria-describedby="basic-addon2"
-                      onSubmit={handleSubmit}
-                      ref={titleRef}
-                    />
-                    <InputGroup.Append>
-                      <Button
-                        variant="light"
-                        className="searchb"
-                        onClick={handleSubmit}
+                  <FormControl
+                    className={styles.Search}
+                    placeholder="What do you want"
+                    aria-label="What do you want"
+                    aria-describedby="basic-addon2"
+                    onSubmit={handleSubmit}
+                    ref={titleRef}
+                  />
+                  <Button
+                    variant="light"
+                    className={styles.searchb}
+                    onClick={handleSubmit}
+                  >
+                    <AiOutlineSearch />
+                  </Button>
+
+                  <Button
+                    variant="light"
+                    className="sellbtn"
+                    href={"../post-ad/new-ad"}
+                  >
+                    Sell
+                    <img src="" />
+                  </Button>
+                  <Dropdown className={styles.customdropdown}>
+                    <Dropdown.Toggle
+                      as={CustomToggle}
+                      id="dropdown-custom-components"
+                    ></Dropdown.Toggle>
+                    <Dropdown.Menu className={styles.DropdownMenu1}>
+                      <Dropdown.Item>Profile</Dropdown.Item>
+                      <Dropdown.Divider />
+                      <Dropdown.Item>Blue</Dropdown.Item>
+                      <Dropdown.Item>Orange</Dropdown.Item>
+                      <Dropdown.Divider />
+                      <Dropdown.Item className="logout" href="../page/logout">
+                        Logout
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+
+                  <Dropdown className={styles.customdropdown2}>
+                    <Dropdown.Toggle
+                      as={CustomToggle2}
+                      id="dropdown-custom-components"
+                    ></Dropdown.Toggle>
+                    <Dropdown.Menu className={styles.DropdownMenu}>
+                      <Dropdown.Item>Profile </Dropdown.Item>
+                      <Dropdown.Divider />
+                      <Dropdown.Item>Blue</Dropdown.Item>
+                      <Dropdown.Item>Orange</Dropdown.Item>
+                      <Dropdown.Divider />
+                      <Dropdown.Item
+                        className={styles.logout}
+                        href="../page/logout"
                       >
-                        Search
-                      </Button>
-                    </InputGroup.Append>
-                    <NavDropdown
-                      title="Categories"
-                      id="basic-nav-dropdown"
-                      className="dropdown"
-                    >
-                      <NavDropdown.Item href="#action/3.1">
-                        Something
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.2">
-                        Something
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.3">
-                        Something
-                      </NavDropdown.Item>
-                    </NavDropdown>
-                    <Button
-                      variant="light"
-                      className="sellbtn"
-                      href={"../post-ad/new-ad"}
-                    >
-                      Sell
-                      <img src="" />
-                    </Button>
-                    <Button href="/api/logout">Logout</Button>
-                  </InputGroup>
+                        Logout{" "}
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
                 </div>
               </Nav>
             </Navbar>
           </div>
         </Desktop>
-        <Mobile>
-          <Card style={{ background: "#00008b" }} />
-          <div>
-            <Navbar expand="lg" className="justify-content-between">
-              <Nav className="mr-auto">
+
+        <Tablet>
+          <Card className="abovenavbar" style={{ background: "#00008b" }} />
+          <div
+            style={{ background: "#00008b" }}
+            classname={styles.navbar_brand}
+          >
+            <Navbar expand="lg">
+              <Nav fluid>
                 <Navbar.Brand href="/.." variant="light">
-                  Bozar
+                  <div>
+                    <Image
+                      src={Bazar_image}
+                      alt="Bazar"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
                 </Navbar.Brand>
                 <div>
-                  <Button variant="light" className="sellbtn">
+                  <FormControl
+                    className={styles.Search}
+                    placeholder="What do you want"
+                    aria-label="What do you want"
+                    aria-describedby="basic-addon2"
+                    onSubmit={handleSubmit}
+                    ref={titleRef}
+                  />
+
+                  <Button
+                    variant="light"
+                    className={styles.searchb}
+                    onClick={handleSubmit}
+                  >
+                    <AiOutlineSearch />
+                  </Button>
+
+                  <Button
+                    variant="light"
+                    className={styles.sellbtn}
+                    href={"../post-ad/new-ad"}
+                  >
                     Sell
                     <img src="" />
                   </Button>
-                  <Button href="/api/logout">Logout</Button>
+                  <Button variant="link" href="../page/logout">
+                    Logout
+                  </Button>
+                </div>
+              </Nav>
+            </Navbar>
+          </div>
+        </Tablet>
+
+        <Mobile>
+          <Card
+            className={styles.abovenavbar}
+            style={{ background: "#00008b" }}
+          />
+          <div
+            style={{ background: "#00008b" }}
+            classname={styles.navbar_brand}
+          >
+            <Navbar expand="lg">
+              <Nav fluid>
+                <Navbar.Brand href="/.." variant="light">
+                  <div className={styles.logo}>
+                    <Image
+                      src={Bazar_image}
+                      alt="Bazar"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                </Navbar.Brand>
+                <div>
+                  <Button variant="light" className={styles.sellbtn}>
+                    Sell
+                    <img src="" />
+                  </Button>
+                  <Button
+                    variant="link"
+                    href="../page/logout"
+                    className={styles.login}
+                  >
+                    Logout
+                  </Button>
                 </div>
                 <div>
-                  <InputGroup className="searchbar">
-                    <FormControl
-                      placeholder="What do you want"
-                      aria-label="What do you want"
-                      aria-describedby="basic-addon2"
-                      onSubmit={handleSubmit}
-                      ref={titleRef}
-                    />
-                    <InputGroup.Append>
-                      <Button
-                        variant="light"
-                        className="searchb"
-                        onClick={handleSubmit}
-                      >
-                        Search
-                      </Button>
-                    </InputGroup.Append>
-
-                    <NavDropdown
-                      title="Categories"
-                      id="basic-nav-dropdown"
-                      className="dropdown"
-                    >
-                      <NavDropdown.Item href="#action/3.1">
-                        Something
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.2">
-                        Something
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.3">
-                        Something
-                      </NavDropdown.Item>
-                    </NavDropdown>
-                  </InputGroup>
+                  <FormControl
+                    className={styles.Search}
+                    placeholder="What do you want"
+                    aria-label="What do you want"
+                    aria-describedby="basic-addon2"
+                    onSubmit={handleSubmit}
+                    ref={titleRef}
+                  />
+                  <Button
+                    variant="light"
+                    className={styles.searchb}
+                    onClick={handleSubmit}
+                  >
+                    <AiOutlineSearch />
+                  </Button>
                 </div>
               </Nav>
             </Navbar>
@@ -151,113 +269,200 @@ export default function Nav_bar({user}) {
     );
   } else {
     return (
-      <div>
+      <div style={{ background: "#00008b" }} classname={styles.navbar_brand}>
         <Desktop>
-          <Card style={{ background: "#00008b" }} />
-          <div>
-            <Navbar expand="lg" className="justify-content-between">
-              <Nav className="mr-auto">
+          <Card
+            className={styles.abovenavbar}
+            style={{ background: "#00008b" }}
+          />
+          <div
+            style={{ background: "#00008b" }}
+            classname={styles.navbar_brand}
+          >
+            <Navbar expand="lg">
+              <Nav fluid>
                 <Navbar.Brand href="/.." variant="light">
-                  Bozar
+                  <div className={styles.logo}>
+                    <Image
+                      src={Bazar_image}
+                      alt="Bazar"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
                 </Navbar.Brand>
                 <div>
-                  <InputGroup className="searchbar">
-                    <FormControl
-                      placeholder="What do you want"
-                      aria-label="What do you want"
-                      aria-describedby="basic-addon2"
-                      onSubmit={handleSubmit}
-                      ref={titleRef}
-                    />
-                    <InputGroup.Append>
-                      <Button
-                        variant="light"
-                        className="searchb"
-                        onClick={handleSubmit}
-                      >
-                        Search
-                      </Button>
-                    </InputGroup.Append>
-                    <NavDropdown
-                      title="Categories"
-                      id="basic-nav-dropdown"
-                      className="dropdown"
-                    >
-                      <NavDropdown.Item href="#action/3.1">
-                        Something
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.2">
-                        Something
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.3">
-                        Something
-                      </NavDropdown.Item>
-                    </NavDropdown>
-                    <Button
-                      variant="light"
-                      className="sellbtn"
-                      href={"../post-ad/new-ad"}
-                    >
-                      Sell
-                      <img src="" />
-                    </Button>
-                    <Button href="/signin">Login</Button>
-                  </InputGroup>
+                  <FormControl
+                    className={styles.Search}
+                    placeholder="What do you want"
+                    aria-label="What do you want"
+                    aria-describedby="basic-addon2"
+                    onSubmit={handleSubmit}
+                    ref={titleRef}
+                  />
+                  <Button
+                    variant="light"
+                    className={styles.searchb}
+                    onClick={handleSubmit}
+                  >
+                    <AiOutlineSearch />
+                  </Button>
+
+                  <Button
+                    variant="light"
+                    className={styles.sellbtn}
+                    href={"../post-ad/new-ad"}
+                  >
+                    Sell
+                    <img src="" />
+                  </Button>
+                  <Button
+                    variant="link"
+                    href="../pages/signin"
+                    className={styles.login}
+                  >
+                    Login
+                  </Button>
+                  <Button
+                    variant="link"
+                    href="../pages/signup"
+                    className={styles.SignUp}
+                  >
+                    Sign Up
+                  </Button>
                 </div>
               </Nav>
             </Navbar>
           </div>
         </Desktop>
-        <Mobile>
-          <Card style={{ background: "#00008b" }} />
-          <div>
-            <Navbar expand="lg" className="justify-content-between">
-              <Nav className="mr-auto">
+
+        <Tablet>
+          <Card
+            className={styles.abovenavbar}
+            style={{ background: "#00008b" }}
+          />
+          <div
+            style={{ background: "#00008b" }}
+            classname={styles.navbar_brand}
+          >
+            <Navbar expand="lg">
+              <Nav fluid>
                 <Navbar.Brand href="/.." variant="light">
-                  Bozar
+                <div className={styles.logo}>
+                    <Image
+                      src={Bazar_image}
+                      alt="Bazar"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
                 </Navbar.Brand>
                 <div>
-                  <Button variant="light" className="sellbtn">
+                  <FormControl
+                    className={styles.Search}
+                    placeholder="What do you want"
+                    aria-label="What do you want"
+                    aria-describedby="basic-addon2"
+                    onSubmit={handleSubmit}
+                  />
+
+                  <Button
+                    variant="light"
+                    className={styles.searchb}
+                    onClick={handleSubmit}
+                  >
+                    <AiOutlineSearch />
+                  </Button>
+
+                  <Button
+                    variant="light"
+                    className={styles.sellbtn}
+                    href={"../post-ad/new-ad"}
+                  >
                     Sell
                     <img src="" />
                   </Button>
-                  <Button href="/signin">Login</Button>
+                  <Button
+                    variant="link"
+                    href="../pages/signin"
+                    className={styles.login}
+                  >
+                    Login
+                  </Button>
+
+                  <Button
+                    variant="link"
+                    href="../pages/signup"
+                    className={styles.SignUp}
+                  >
+                    Sign Up
+                  </Button>
+                </div>
+              </Nav>
+            </Navbar>
+          </div>
+        </Tablet>
+
+        <Mobile>
+          <Card
+            className={styles.abovenavbar}
+            style={{ background: "#00008b" }}
+          />
+          <div
+            style={{ background: "#00008b" }}
+            classname={styles.navbar_brand}
+          >
+            <Navbar expand="lg">
+              <Nav fluid>
+                <Navbar.Brand href="/.." variant="light">
+                <div className={styles.logo}>
+                    <Image
+                      src={Bazar_image}
+                      alt="Bazar"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                </Navbar.Brand>
+                <div>
+                  <Button variant="light" className={styles.sellbtn}>
+                    Sell
+                    <img src="" />
+                  </Button>
                 </div>
                 <div>
-                <InputGroup className="searchbar">
-                    <FormControl
-                      placeholder="What do you want"
-                      aria-label="What do you want"
-                      aria-describedby="basic-addon2"
-                      onSubmit={handleSubmit}
-                      ref={titleRef}
-                    />
-                    <InputGroup.Append>
-                      <Button
-                        variant="light"
-                        className="searchb"
-                        onClick={handleSubmit}
-                      >
-                        Search
-                      </Button>
-                    </InputGroup.Append>
+                  <FormControl
+                    className={styles.Search}
+                    placeholder="What do you want"
+                    aria-label="What do you want"
+                    aria-describedby="basic-addon2"
+                    onSubmit={handleSubmit}
+                    ref={titleRef}
+                  />
 
-                    <NavDropdown
-                      title="Categories"
-                      id="basic-nav-dropdown"
-                      className="dropdown"
-                    >
-                      <NavDropdown.Item href="#action/3.1">
-                        Something
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.2">
-                        Something
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.3">
-                        Something
-                      </NavDropdown.Item>
-                    </NavDropdown>
-                  </InputGroup>
+                  <Button
+                    variant="light"
+                    className={styles.searchb}
+                    onClick={handleSubmit}
+                  >
+                    <AiOutlineSearch />
+                  </Button>
+
+                  <Button
+                    variant="link"
+                    href="../pages/signin"
+                    className={styles.login}
+                  >
+                    Login
+                  </Button>
+
+                  <Button
+                    variant="link"
+                    href="../pages/signup"
+                    className={styles.SignUp}
+                  >
+                    Sign Up
+                  </Button>
                 </div>
               </Nav>
             </Navbar>

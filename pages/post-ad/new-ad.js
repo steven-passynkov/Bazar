@@ -1,6 +1,3 @@
-import Nav_bar from "../../components/nav-bar";
-import Footer from "../../components/footer";
-import Head from "next/head";
 import StepProgressBar from "react-step-progress";
 import "react-step-progress/dist/index.css";
 import Step1 from "../../components/StepProgressBar/step1";
@@ -62,11 +59,6 @@ export default function new_ad() {
     <div>
     {loading == false ? (
     <div>
-      <Head>
-        <title>Bazar</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <Nav_bar />
       <StepProgressBar
         startingStep={0}
         onSubmit={onFormSubmit}
@@ -92,7 +84,6 @@ export default function new_ad() {
         ]}
       />
 
-      <Footer />
     </div>
     ) : (
       <div className="text-center">

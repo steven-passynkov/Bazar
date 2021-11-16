@@ -1,17 +1,15 @@
-import Nav_bar from "../components/nav-bar";
 import Carousel_PayedPost from "../components/carousel/carousel-home";
 import Carousel_Items from "../carousel-items";
-import Footer from "../components/footer";
 import Card from "react-bootstrap/Card";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
 import Home_css from "../styles/Home.module.css";
 
-export default function Home_Page() {
+
+export default function Home_Page({ Component, pageProps }) {
 
   return (
     <div>
-      <Nav_bar />
       <div className={Home_css.box}>
         <div className="hometag">
           <Jumbotron >
@@ -48,7 +46,6 @@ export default function Home_Page() {
           </Card.Body>
         </Card>
       </div>
-      <Footer />
-    </div>
+</div>
   );
 }

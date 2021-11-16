@@ -8,25 +8,25 @@ import { Table } from "react-bootstrap";
 
 export default function login({ supabase }) {
   const user = useContext(UserContext);
-  console.log({ user });
   const [userIdentification, setUserIdentification] = useState();
   const [password, setPassword] = useState();
 
   const auth = async () => {
+    debugger;
     return await supabase.auth.signIn({
       email: userIdentification,
       password: password,
     });
   };
 
-  async function signInWithGoogle() {
-    const { user, session, error } = await supabase.auth.signIn({
-      provider: "google",
-    });
-  }
-
   const authTable = async () => {
-    await auth();
+    const result = await auth();
+  
+    if(result.error) {
+      console.log('result', result);
+      return;
+    }
+
     const username = await supabase
       .from("user")
       .select("username")
@@ -38,6 +38,7 @@ export default function login({ supabase }) {
     if (username === userIdentification || password === password) {
       console.log("works");
       user.setLoggedIn(true)
+      console.log(user.loggedIn)
     } else {
       console.log("error");
     }
@@ -47,20 +48,19 @@ export default function login({ supabase }) {
     <div>
       <InputGroup>
         <FormControl
-          onChange={() => setUserIdentification(event.target.value)}
+          onChange={(e) => setUserIdentification(e.target.value)}
           placeholder="Username"
           aria-label="Username"
           aria-describedby="basic-addon1"
         />
         <FormControl
-          onChange={() => setPassword(event.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           aria-label="Password"
           aria-describedby="basic-addon1"
         />
       </InputGroup>
       <Button onClick={authTable}>Log in</Button>
-      <Button onClick={signInWithGoogle}>Login with google</Button>
     </div>
   );
 }
