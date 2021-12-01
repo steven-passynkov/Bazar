@@ -1,24 +1,12 @@
 import Carousel_PayedPost from "../components/carousel/carousel-home";
 import Carousel_Items from "../carousel-items";
 import Card from "react-bootstrap/Card";
-import Jumbotron from "react-bootstrap/Jumbotron";
-import Button from "react-bootstrap/Button";
 import Home_css from "../styles/Home.module.css";
 
-
-export default function Home_Page({ Component, pageProps }) {
-
+export default function Home_Page() {
   return (
     <div>
       <div className={Home_css.box}>
-        <div className="hometag">
-          <Jumbotron >
-            <h1>Sell Now!</h1>
-            <p>
-              <Button variant="primary">Sell</Button>
-            </p>
-          </Jumbotron>
-        </div>
         <Card className="Carousel">
           <Card.Header style={{ color: "#00008b" }}>
             <strong>Trending</strong>
@@ -32,7 +20,7 @@ export default function Home_Page({ Component, pageProps }) {
             />
           </Card.Body>
         </Card>
-        <Card className="Carousel" >
+        <Card className="Carousel">
           <Card.Header style={{ color: "#00008b" }}>
             <strong>Auto</strong>
           </Card.Header>
@@ -46,6 +34,6 @@ export default function Home_Page({ Component, pageProps }) {
           </Card.Body>
         </Card>
       </div>
-</div>
+    </div>
   );
 }

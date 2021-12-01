@@ -56,11 +56,11 @@
   color: #ffffff;
   width: 491px;
 }
-.SearchBar {
+.SearchBar{
   border-radius: 40px 0px 0px 40px;
   margin-left: 0%;
 }
-.SearchButton {
+.SearchButton{
   left: "1%";
   margin-bottom: "1rem";
   border-left-width: "1px";
@@ -68,7 +68,27 @@
   border-color: #ffffff;
   height: 58px;
 }
-.SearchButton:hover {
+.SearchButton:hover{
   background-color: #ececee;
   border-color: #ececee;
+}
+.SubNavbar {
+  margin-left: 5%;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+.InputBar{
+  margin-top: 2%;
+}
+.Account{
+  border-color: #00008b;
+  background-color: #00008b;
+  color: #ffe069;
+  border-radius: 40px;
+}
+.Account:hover{
+  background-color: #00008b;
+  border-color: #00008b;
+  color: #ffe069;
+  text-decoration: underline;
 }

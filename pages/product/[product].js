@@ -1,7 +1,5 @@
-import Nav_bar from "../../components/nav-bar";
-import Footer from "../../components/footer";
-import Product_CSS from "../../styles/product-page.module.css";
-import Carousel from "../../components/carousel/carousel-paidAds";
+import styles from "../../styles/productpage.module.css";
+import Carousel from "../../components/carousel/carousel-ad";
 import Carousel_Items from "../../carousel-items.json";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Container from "react-bootstrap/Container";
@@ -16,7 +14,7 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Head from "next/head";
 import FsLightbox from "fslightbox-react";
-import Spinner from "../../components/spinner";
+import Row from "react-bootstrap/Row"
 
 export default function Product_page({ supabase }) {
   const router = useRouter();
@@ -48,31 +46,29 @@ export default function Product_page({ supabase }) {
   };
 
   const data = async () => {
-    const idpruduct = await supabase
-    .from('pruduct')
-    .select('*')
-  console.log(idpruduct)
-  }
+    const idpruduct = await supabase.from("pruduct").select("*");
+    console.log(idpruduct);
+  };
 
   let finalApiRoute = `${`/api/product`}?id=${product}`;
 
-  useEffect(()=> {
-    if(value === null) {
+  useEffect(() => {
+    if (value === null) {
       return;
     }
-    if (value === '') {
+    if (value === "") {
       setAlert(true);
     } else {
       setAlert(false);
     }
   }, [value]);
 
-  useEffect(()=> {
-    if(product) {
+  useEffect(() => {
+    if (product) {
       axiosInstance
         .get(finalApiRoute)
         .then((response) => {
-          data()
+          data();
           setLoadingData(false);
           setName(response.data.data.myuser);
           setId(response.data.data.id);
@@ -90,15 +86,10 @@ export default function Product_page({ supabase }) {
 
   return (
     <div>
-      <Head>
-        <title>{title} sold on Bazar</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
       {loading == false ? (
         <div>
-          <Nav_bar />
           <Container fluid>
-            <div className={Product_CSS.Breadcrumb}>
+            <div className={styles.Breadcrumb}>
               <Breadcrumb>
                 <Breadcrumb.Item href="../../">Home</Breadcrumb.Item>
                 <Breadcrumb.Item href="#">Region: {}</Breadcrumb.Item>
@@ -107,20 +98,18 @@ export default function Product_page({ supabase }) {
               </Breadcrumb>
             </div>
           </Container>
-
-          <Card className="text-center" >
-            <Card.Body>
-              <Carousel
-                className="Product_car"
-                numberItemsDesktop={1}
-                numberItemsTable={1}
-                numberItemsMobile={1}
-                items={Carousel_Items.auto_items}
-                onClick={() => setToggler(!toggler)}
-              />
-            </Card.Body>
-          </Card>
-
+          <Container styles={{width:"30%"}}>
+            <Row>
+            <Carousel
+              className={styles.Product_car}
+              numberItemsDesktop={1}
+              numberItemsTable={1}
+              numberItemsMobile={1}
+              items={Carousel_Items.auto_items}
+              onClick={() => setToggler(!toggler)}
+            />
+            </Row>
+          </Container>
           <div>
             <FsLightbox
               toggler={toggler}
@@ -206,38 +195,35 @@ export default function Product_page({ supabase }) {
             </Modal>
           </div>
 
-          <div className="div_price">
-            <h3 className="Price">Price: ${price}</h3>
+          <div className={styles.div_price}>
+            <h3 className={styles.Price}>Price: ${price}</h3>
           </div>
 
-          <h5 className="product_title"> {title}</h5>
+          <h5 className={styles.product_title}> {title}</h5>
 
-          <Card className="sellerinfo" style={{ width: "18rem" }}>
+          <Card className={styles.sellerinfo} style={{ width: "18rem" }}>
             Seller Name:{" "}
             <Link href="#">
               <a>{name}</a>
             </Link>
           </Card>
 
-          <Button className="offerbtn" onClick={handleShow}>
+          <Button className={styles.offerbtn} onClick={handleShow}>
             Make offer
           </Button>
-          <Button className="messagebtn" onClick={handleMessageShow}>
+          <Button className={styles.messagebtn} onClick={handleMessageShow}>
             Contact seller
           </Button>
-          <Card className="description" >
+          <Card className={styles.description}>
             <Card.Body>{description}</Card.Body>
           </Card>
 
-          <Card className="item_info" >
+          <Card className={styles.item_info}>
             <Card.Body>{info}</Card.Body>
           </Card>
-          <Footer />
         </div>
-      ) : ( 
-        <div className="text-center">
-          <Spinner />
-        </div>
+      ) : (
+        <></>
       )}
     </div>
   );

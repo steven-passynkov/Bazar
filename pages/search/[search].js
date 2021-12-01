@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Nav_bar from "../../components/nav-bar";
-import Footer from "../../components/footer";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Card from "react-bootstrap/Card";
 import Search_results_css from "../../styles/Search_results.module.css";
@@ -25,7 +23,6 @@ export default function search_page() {
     
     <div>
       <div>
-        <Nav_bar />
         <Breadcrumb>
           <Breadcrumb.Item href="../../">Home</Breadcrumb.Item>
           <Breadcrumb.Item href="#">Catagory: {}</Breadcrumb.Item>
@@ -104,7 +101,6 @@ export default function search_page() {
           isSearchingData={setSearchingData}
         />
       </Container>
-      <Footer />
     </div>
   );
 }
