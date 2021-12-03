@@ -6,7 +6,6 @@ import ReactStars from "react-rating-stars-component";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Spinner from "../../components/spinner";
 
 export default function Profile_page() {
   const router = useRouter();
@@ -38,7 +37,7 @@ export default function Profile_page() {
   return (
     <>
       {data == null ? (
-        <Spinner/>
+        <p>loading...</p>
       ) : (
         <div>
           <Nav_bar />
