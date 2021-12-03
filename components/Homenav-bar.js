@@ -83,7 +83,7 @@ export default function Nav_bar() {
               <Button
                 variant="outline-primary"
                 className={styles.navbarButton}
-                href="/post-add/new-ad"
+                href="/post-ad/new-ad"
               >
                 Sell
               </Button>
