@@ -6,6 +6,6 @@ export default styled.div`
   align-items: center;
   height: 250px;
   width: 100%;
-  margin: 0 15px;
+  margin: 0 0 5%;
   font-size: 4em;
 `;

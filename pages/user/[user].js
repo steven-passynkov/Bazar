@@ -1,10 +1,9 @@
-import Nav_bar from "../../components/nav-bar";
-import Footer from "../../components/footer";
 import Card from "react-bootstrap/Card";
-import Image from 'next/image'
+import Image from "next/image";
 import ReactStars from "react-rating-stars-component";
 import { useRouter } from "next/router";
 import axios from "axios";
+import axiosInstance from "../../http/httpInstance";
 import { useEffect, useState } from "react";
 
 export default function Profile_page() {
@@ -33,31 +32,28 @@ export default function Profile_page() {
       setData(response.data);
     });
   };
-
-  return (
+  if (false) {
+    return (
+      <>
+        <Card>
+          <Card>
+            <Image src={data.picture} width="100px" height="100px" />
+          </Card>
+          <Card.Header>{data.nickname}</Card.Header>
+          <Card.Text>Date joined: {data.created_at}</Card.Text>
+          <Card.Text>Number of items sold: </Card.Text>
+          <Card.Text>Avrage rating</Card.Text>
+          <ReactStars {...stars} />
+          <Card.Text>Name adds</Card.Text>
+        </Card>
+        <Card>
+          <Card.Header>{data.nickname} adds</Card.Header>
+        </Card>
+      </>
+    );
+  } else {
+    return(
     <>
-      {data == null ? (
-        <p>loading...</p>
-      ) : (
-        <div>
-          <Nav_bar />
-          <Card>
-            <Card>
-              <Image src={data.picture} width="100px" height="100px"/>
-            </Card>
-            <Card.Header>{data.nickname}</Card.Header>
-            <Card.Text>Date joined: {data.created_at}</Card.Text>
-            <Card.Text>Number of items sold: </Card.Text>
-            <Card.Text>Avrage rating</Card.Text>
-            <ReactStars {...stars} />
-            <Card.Text>Name adds</Card.Text>
-          </Card>
-          <Card>
-            <Card.Header>{data.nickname} adds</Card.Header>
-          </Card>
-          <Footer />
-        </div>
-      )}
-    </>
-  );
+    </>);
+  }
 }

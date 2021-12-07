@@ -2,7 +2,7 @@ import { useRef, useContext } from "react";
 import { UserContext } from "./UserContext";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import Navbar from "react-bootstrap/Navbar";
+import Navbar from 'react-bootstrap/Navbar'
 import Card from "react-bootstrap/Card";
 import Bazar_image from "../public/Bazar.jpg";
 import ProfilePic from "../public/Bazar_all_white.png";
@@ -49,7 +49,7 @@ export default function Nav_bar() {
     </a>
   ));
 
-  if (true) {
+  if (false) {
     return (
       <div className={styles.Navbar}>
         <Navbar expand="lg" sticky="top" className={styles.NavbarSticky}>

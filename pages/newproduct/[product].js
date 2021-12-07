@@ -5,14 +5,12 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import axiosInstance from "../../http/httpInstance";
-import FsLightbox from "fslightbox-react";
 import { useMediaQuery } from "react-responsive";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
@@ -21,30 +19,15 @@ export default function Product_page({ supabase }) {
   const router = useRouter();
   const { product } = router.query;
 
-  const [toggler, setToggler] = useState(false);
+  const [toggler, setToggler] = useState(true);
 
-  const [alert, setAlert] = useState(true);
-  const [value, setValue] = useState(null);
-
-  const [loading, setLoadingData] = useState(true);
+  const [loading, setLoadingData] = useState(false);
   const [name, setName] = useState();
   const [id, setId] = useState();
   const [price, setPrice] = useState();
   const [title, setTitle] = useState();
   const [info, setInfo] = useState();
   const [description, setDescription] = useState();
-
-  const [showModel, setShowModel] = useState(false);
-  const handleClose = () => setShowModel(false);
-  const handleShow = () => setShowModel(true);
-
-  const [handleMessage, setHandleMessage] = useState(false);
-  const handleMessageClose = () => setHandleMessage(false);
-  const handleMessageShow = () => setHandleMessage(true);
-
-  const onConfirm = () => {
-    setShowModel(false);
-  };
 
   const data = async () => {
     const idpruduct = await supabase.from("pruduct").select("*");
@@ -54,22 +37,11 @@ export default function Product_page({ supabase }) {
   let finalApiRoute = `${`/api/product`}?id=${product}`;
 
   useEffect(() => {
-    if (value === null) {
-      return;
-    }
-    if (value === "") {
-      setAlert(true);
-    } else {
-      setAlert(false);
-    }
-  }, [value]);
-
-  useEffect(() => {
     if (product) {
+      data();
       axiosInstance
         .get(finalApiRoute)
         .then((response) => {
-          data();
           setLoadingData(false);
           setName(response.data.data.name);
           setId(response.data.data.id);
@@ -109,23 +81,24 @@ export default function Product_page({ supabase }) {
           </Col>
 
           <Row style={{ marginLeft: "2.5%", marginRight: "5%" }}>
-            <Col xs={{ order: "first" }} xs={8}>
+            <Col xs={8}>
               <Carousel
                 className={styles.Product_car}
                 numberItemsDesktop={1}
                 numberItemsTable={1}
                 numberItemsMobile={1}
                 items={Carousel_Items.auto_items}
-                onClick={() => setToggler(!toggler)}
               />
             </Col>
             <Col>
-              <h1>Price ${price}</h1>
+              <h1 styles={{ textColor: "#00008b" }}>{title}</h1>
               <Card>
-                <Card.Header>{title}</Card.Header>
+                <Card.Header>
+                  <h3>Price ${price}</h3>
+                </Card.Header>
                 <Card.Body>
                   Seller Name:{" "}
-                  <Card.Link onClick={handleMessageShow}>{name}</Card.Link>
+                  <Card.Link href={`/user/${name}`}>{name}</Card.Link>
                 </Card.Body>
               </Card>
             </Col>
@@ -136,7 +109,7 @@ export default function Product_page({ supabase }) {
                 style={{
                   marginLeft: "3.2%",
                   marginRight: "36.5%",
-                  marginTop: "1%",
+                  marginTop: "2%",
                   marginBottom: "5%",
                 }}
               >
@@ -146,81 +119,6 @@ export default function Product_page({ supabase }) {
             </Col>
           </Row>
         </Container>
-        <>
-          <FsLightbox
-            toggler={toggler}
-            sources={[
-              "//placekitten.com/1500/500",
-              "//placekitten.com/4000/3000",
-              "//placekitten.com/800/1200",
-              "//placekitten.com/1500/1500",
-            ]}
-          />
-        </>
-        <>
-          <Modal
-            show={showModel}
-            onHide={handleClose}
-            backdrop="static"
-            keyboard={false}
-            centered
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>Make offer</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Form>
-                <InputGroup>
-                  <InputGroup.Text>$</InputGroup.Text>
-                  <>
-                    {alert == false ? (
-                      <Form.Control
-                        type="number"
-                        onChange={() => setValue(event.target.value)}
-                        required
-                        isValid
-                      />
-                    ) : (
-                      <>
-                        <Form.Control
-                          type="number"
-                          onChange={() => setValue(event.target.value)}
-                          required
-                          isInvalid
-                        />
-                        <Form.Control.Feedback type="invalid">
-                          Please select an amount
-                        </Form.Control.Feedback>
-                      </>
-                    )}
-                  </>
-                </InputGroup>
-              </Form>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="primary" onClick={onConfirm}>
-                Confirm
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </>
-        <>
-          <Modal
-            show={handleMessage}
-            onHide={handleMessageClose}
-            backdrop="static"
-            keyboard={false}
-            centered
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>Contact {name}</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              I will not close if you click outside me. Don't even try to press
-              escape key.
-            </Modal.Body>
-          </Modal>
-        </>
       </Destop>
 
       <Mobile>
@@ -244,7 +142,6 @@ export default function Product_page({ supabase }) {
               numberItemsTable={1}
               numberItemsMobile={1}
               items={Carousel_Items.auto_items}
-              onClick={() => setToggler(!toggler)}
             />
           </Col>
 
@@ -252,8 +149,26 @@ export default function Product_page({ supabase }) {
             <Col>
               <Card
                 style={{
-                  marginTop: "2.5%",
-                  marginBottom: "2.5%",
+                  marginTop: "5%",
+                  marginBottom: "3%",
+                }}
+              >
+                <Card.Header>{title}</Card.Header>
+                <Card.Body>
+                  Seller Name:{" "}
+                  <Card.Link>
+                    <Link href={`/user/${name}`}>{name}</Link>
+                  </Card.Link>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Card
+                style={{
+                  marginTop: "3%",
+                  marginBottom: "3%",
                 }}
               >
                 <Card.Header>Description</Card.Header>
@@ -261,93 +176,7 @@ export default function Product_page({ supabase }) {
               </Card>
             </Col>
           </Row>
-          <Col>
-            <Col>
-              <Card>
-                <Card.Header>{title}</Card.Header>
-                <Card.Body>
-                  Seller Name:{" "}
-                  <Card.Link onClick={handleMessageShow}>{name}</Card.Link>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Col>
         </Container>
-        <>
-          <FsLightbox
-            toggler={toggler}
-            sources={[
-              "//placekitten.com/1500/500",
-              "//placekitten.com/4000/3000",
-              "//placekitten.com/800/1200",
-              "//placekitten.com/1500/1500",
-            ]}
-          />
-        </>
-        <>
-          <Modal
-            show={showModel}
-            onHide={handleClose}
-            backdrop="static"
-            keyboard={false}
-            centered
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>Make offer</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Form>
-                <InputGroup>
-                  <InputGroup.Text>$</InputGroup.Text>
-                  <>
-                    {alert == false ? (
-                      <Form.Control
-                        type="number"
-                        onChange={() => setValue(event.target.value)}
-                        required
-                        isValid
-                      />
-                    ) : (
-                      <>
-                        <Form.Control
-                          type="number"
-                          onChange={() => setValue(event.target.value)}
-                          required
-                          isInvalid
-                        />
-                        <Form.Control.Feedback type="invalid">
-                          Please select an amount
-                        </Form.Control.Feedback>
-                      </>
-                    )}
-                  </>
-                </InputGroup>
-              </Form>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="primary" onClick={onConfirm}>
-                Confirm
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </>
-        <>
-          <Modal
-            show={handleMessage}
-            onHide={handleMessageClose}
-            backdrop="static"
-            keyboard={false}
-            centered
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>Contact {name}</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              I will not close if you click outside me. Don't even try to press
-              escape key.
-            </Modal.Body>
-          </Modal>
-        </>
       </Mobile>
     </>
   );
