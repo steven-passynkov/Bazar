@@ -4,6 +4,8 @@ import "react-multi-carousel/lib/styles.css";
 import Item from "./carousel-item";
 import InnerImageZoom from "react-inner-image-zoom";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
+import styles from "../../styles/carousel.module.css";
+import Button from "react-bootstrap/Button";
 
 export default function Carousel_PayedPost({
   numberItemsDesktop,
@@ -34,12 +36,52 @@ export default function Carousel_PayedPost({
     },
   };
 
+  const CustomLeftArrow = ({ onClick }) => (
+    <i onClick={() => onClick()} className={styles.customLeftArrow} />
+  );
+  const CustomRightArrow = ({ onClick }) => {
+    return <i className={styles.customRightArrow} onClick={() => onClick()} />;
+  };
+
+  const CustomDot = ({ index, onClick, active }) => {
+    if (active == true) {
+      return (
+        <Card>
+          <Button
+            variant="secondary"
+            onClick={(e) => {
+              onClick();
+              e.preventDefault();
+            }}
+          >
+            {index+1}
+          </Button>
+        </Card>
+      );
+    } else {
+      return (
+        <Card>
+          <Button
+            onClick={(e) => {
+              onClick();
+              e.preventDefault();
+            }}
+          >
+            {index+1}
+          </Button>
+        </Card>
+      );
+    }
+  };
   return (
     <div>
       <Carousel
         swipeable={true}
         draggable={false}
         showDots={true}
+        customDot={<CustomDot />}
+        customLeftArrow={<CustomLeftArrow />}
+        customRightArrow={<CustomRightArrow />}
         responsive={responsive}
         ssr={true}
         infinite={true}
@@ -54,18 +96,20 @@ export default function Carousel_PayedPost({
         itemClass="carousel-item-padding-40-px"
       >
         {items.map((el) => (
-          <div id={el.id}>
-            <Item>
-              <InnerImageZoom
-                src="https://bazar-steven-passynkov.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fimage%2Fpublic%2FBazar.acffe65b64ebe4647e34e590a181e6b9.jpg&w=64&q=75"
-                zoomSrc="https://bazar-steven-passynkov.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fimage%2Fpublic%2FBazar.acffe65b64ebe4647e34e590a181e6b9.jpg&w=64&q=75"
-                width="250"
-                height="200"
-                hideHint="true"
-                zoomType="hover"
-                zoomScale="10"
-              />
-            </Item>
+          <div
+            id={el.id}
+            className={styles.image}
+          >
+            <InnerImageZoom
+              src="https://cdn.discordapp.com/attachments/814969775264497726/917498128574337044/375px-NarutoBorutoMovie.png"
+              zoomSrc="https://cdn.discordapp.com/attachments/814969775264497726/917498128574337044/375px-NarutoBorutoMovie.png"
+              zoomPreload="true"
+              width="500"
+              height="500"
+              hideHint="true"
+              zoomType="hover"
+              zoomScale="3.5"
+            />
           </div>
         ))}
       </Carousel>

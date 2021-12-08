@@ -87,7 +87,7 @@ export default function Product_page({ supabase }) {
                 numberItemsDesktop={1}
                 numberItemsTable={1}
                 numberItemsMobile={1}
-                items={Carousel_Items.auto_items}
+                items={Carousel_Items.trending_items}
               />
             </Col>
             <Col>
@@ -141,7 +141,7 @@ export default function Product_page({ supabase }) {
               numberItemsDesktop={1}
               numberItemsTable={1}
               numberItemsMobile={1}
-              items={Carousel_Items.auto_items}
+              items={Carousel_Items.trending_items}
             />
           </Col>
 

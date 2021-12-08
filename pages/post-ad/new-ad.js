@@ -6,6 +6,8 @@ import Step3 from "../../components/StepProgressBar/step3";
 import { useRef, useEffect, useState } from "react";
 import axios from "axios";
 
+//Make max of 8 images
+
 export default function new_ad() {
   const curIsValid1 = useRef(false);
   const curIsValid2 = useRef(false);
