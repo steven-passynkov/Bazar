@@ -49,7 +49,7 @@
   }
   .customDotFocus:hover{
     cursor: pointer;
-    border: 5px solid black;
+    border: 5px solid #999999;
   }
   .customDot{
     margin-left: 5%;
@@ -58,5 +58,5 @@
   }
   .customDot:hover{
     cursor: pointer;
-    border: 2.5px solid black;
+    border: 2.5px solid darkgray;
   }
