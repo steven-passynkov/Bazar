@@ -6,6 +6,7 @@ import InnerImageZoom from "react-inner-image-zoom";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 import styles from "../../styles/carousel.module.css";
 import Button from "react-bootstrap/Button";
+import Image from "next/image";
 
 export default function Carousel_PayedPost({
   numberItemsDesktop,
@@ -37,39 +38,48 @@ export default function Carousel_PayedPost({
   };
 
   const CustomLeftArrow = ({ onClick }) => (
-    <i onClick={() => onClick()} className={styles.customLeftArrow} />
+    <button className={styles.customLeftArrow} onClick={() => onClick()} />
   );
-  const CustomRightArrow = ({ onClick }) => {
-    return <i className={styles.customRightArrow} onClick={() => onClick()} />;
-  };
+  const CustomRightArrow = ({ onClick }) => (
+    <button className={styles.customRightArrow} onClick={() => onClick()} />
+  );
 
   const CustomDot = ({ index, onClick, active }) => {
     if (active == true) {
       return (
-        <Card>
-          <Button
-            variant="secondary"
-            onClick={(e) => {
-              onClick();
-              e.preventDefault();
-            }}
-          >
-            {index+1}
-          </Button>
-        </Card>
+        <div
+          onClick={(e) => {
+            onClick();
+            e.preventDefault();
+          }}
+        >
+          <Card className={styles.customDotFocus}>
+            <Image
+              src="https://cdn.discordapp.com/attachments/814969775264497726/917498128574337044/375px-NarutoBorutoMovie.png"
+              width="75"
+              height="75"
+            />
+          </Card>
+          {/*{index + 1}*/}
+        </div>
       );
     } else {
       return (
-        <Card>
-          <Button
-            onClick={(e) => {
-              onClick();
-              e.preventDefault();
-            }}
-          >
-            {index+1}
-          </Button>
-        </Card>
+        <div
+          onClick={(e) => {
+            onClick();
+            e.preventDefault();
+          }}
+        >
+          <Card className={styles.customDot}>
+            <Image
+              src="https://cdn.discordapp.com/attachments/814969775264497726/917498128574337044/375px-NarutoBorutoMovie.png"
+              width="75"
+              height="75"
+            />
+          </Card>
+          {/*{index + 1}*/}
+        </div>
       );
     }
   };
@@ -96,10 +106,7 @@ export default function Carousel_PayedPost({
         itemClass="carousel-item-padding-40-px"
       >
         {items.map((el) => (
-          <div
-            id={el.id}
-            className={styles.image}
-          >
+          <div id={el.id} className={styles.image}>
             <InnerImageZoom
               src="https://cdn.discordapp.com/attachments/814969775264497726/917498128574337044/375px-NarutoBorutoMovie.png"
               zoomSrc="https://cdn.discordapp.com/attachments/814969775264497726/917498128574337044/375px-NarutoBorutoMovie.png"
